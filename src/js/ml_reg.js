@@ -1,4 +1,5 @@
-jQuery(function($){
+require(['config'],function(){
+    require(['jquery','car'],function($,car){
     //表单验证
     let $reg_name = $('#reg_name');
     let $reg_word = $('#reg_word');
@@ -63,7 +64,7 @@ jQuery(function($){
 
     //随机验证码
     function randomCode(){
-        $code_img.html(randomNumber(1000,9999))
+        $code_img.html(car.randomNumber(1000,9999))
     }
     randomCode();
     $code_img.on('click',function(){
@@ -101,13 +102,13 @@ jQuery(function($){
             }
         })
     })
+
+
+
+
+
+    });
     
+});
 
 
-
-
-
-
-
-    
-})

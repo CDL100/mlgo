@@ -1,4 +1,4 @@
-;jQuery(function($){
+;(function($){
     // this指向的是$box()
     $.fn.banner = function(options){
         let defaults = {
@@ -38,7 +38,6 @@
 
                     //创建分页
                     $span = $('<span/>');
-                    console.log($span)
                     $span.html(idx+1);
                     if(idx==0){
                         $span.addClass('active');
@@ -149,4 +148,4 @@
 
 
     }
-})
+})(jQuery)

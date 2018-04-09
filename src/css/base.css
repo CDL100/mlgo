@@ -217,6 +217,7 @@ s, i, em {
   background-color: #444851;
   padding: 60px 0px;
   text-align: center;
+  z-index: 10;
 }
 
 .fix_cart i {
@@ -317,7 +318,7 @@ s, i, em {
 
 /*头部上*/
 .header_t {
-  background-color: #FF3859;
+  background-color: #EE3D59;
 }
 
 .header_t .container {
@@ -488,6 +489,7 @@ s, i, em {
 /*导航部分*/
 .ml_nav {
   font-size: 15px;
+  position: relative;
 }
 
 .nav_open {
@@ -502,6 +504,7 @@ s, i, em {
 /*导航条*/
 .nav {
   height: 36px;
+  position: relative;
 }
 
 .nav_list li {
@@ -518,26 +521,32 @@ s, i, em {
   border-bottom: 1px solid #CC1D00;
 }
 
+.nav_cart {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .nav_cart .btn_js {
-  position: relative;
-  box-shadow: 0px 0px 1px 0px #ccc;
   display: block;
   width: 200px;
-  line-height: 36px;
+  height: 36px;
   text-align: center;
   background-color: #F9F9F9;
   font-size: 12px;
+  box-shadow: 0px 0px 1px 0px #ccc;
 }
 
 .nav_cart .btn_js i {
   font-size: 30px;
-  position: absolute;
-  left: 22px;
+  position: relative;
+  top: 6px;
 }
 
 /*菜单栏*/
 .menu {
-  position: relative;
+  width: 1190px;
+  position: absolute;
 }
 
 .menu_cont {
@@ -644,6 +653,7 @@ s, i, em {
   position: absolute;
   right: 0;
   top: 0;
+  z-index: 10;
 }
 
 .menu_ad a {
@@ -724,7 +734,7 @@ s, i, em {
 
 .ml_footer .intruduce img {
   width: 95px;
-  height: 95px;
+  height: 108px;
 }
 
 .ml_footer .about {
