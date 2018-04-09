@@ -1,0 +1,105 @@
+.ml_login {
+  min-width: 1190px;
+}
+
+.ml_login .article {
+  padding-top: 30px;
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.ml_login .login_t h5 {
+  margin-top: 20px;
+}
+
+.ml_login .login_c {
+  padding-top: 40px;
+  height: 580px;
+}
+
+.ml_login .login_cr {
+  float: right;
+  width: 290px;
+  height: 440px;
+  margin-right: 40px;
+  padding: 0px 40px;
+  border: 1px solid #ccc;
+  border-top: 2px solid #CC1D00;
+}
+
+.ml_login .login_cr h2, .ml_login .login_cr p {
+  line-height: 60px;
+}
+
+.ml_login .login_cr h2 {
+  font-size: 24px;
+}
+
+.ml_login .login_cr li {
+  list-style: none;
+}
+
+.ml_login .login_cr li input {
+  width: 250px;
+  height: 32px;
+  border: 1px solid #ccc;
+}
+
+.ml_login .login_cr li h3 {
+  height: 20px;
+  color: #CC1D00;
+  padding: 6px 6px;
+}
+
+.ml_login .login_cr li #login_code {
+  width: 110px;
+}
+
+.ml_login .login_cr li .code_img {
+  display: inline-block;
+  width: 60px;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 34px;
+  height: 34px;
+  vertical-align: center;
+}
+
+.ml_login .login_cr li #btn_login {
+  background-color: #CC1D00;
+  color: #fff;
+  line-height: 40px;
+  width: 288px;
+  height: 40px;
+  font-size: 20px;
+}
+
+.ml_login .login_cr li i {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  position: relative;
+  top: 16px;
+  background: url("../img/login.png") no-repeat 0 0;
+}
+
+.ml_login .login_cr li h4 i:nth-of-type(1) {
+  background-position: -80px 0;
+}
+
+.ml_login .login_cr li h4 i:nth-of-type(2) {
+  background-position: -120px 0;
+}
+
+.ml_login .login_cr li h4 i:nth-of-type(3) {
+  background-position: -120px 0;
+}
+
+.ml_login .login_cr li h4 i:nth-of-type(4) {
+  background-position: -160px 0;
+}
+
+.ml_login .login_cr li:nth-of-type(2) i {
+  background-position: -40px 0;
+}

@@ -1,0 +1,80 @@
+.ml_reg {
+  min-width: 1190px;
+}
+
+.ml_reg .article {
+  padding-top: 30px;
+  width: 1000px;
+  margin: 0 auto;
+  font-size: 12px;
+}
+
+.ml_reg .reg_t h5 {
+  margin-top: 20px;
+}
+
+.ml_reg .reg_c {
+  padding-top: 40px;
+  height: 580px;
+}
+
+.ml_reg .reg_cr {
+  float: right;
+  width: 290px;
+  height: 440px;
+  margin-right: 40px;
+  padding: 0px 40px;
+  border: 1px solid #ccc;
+  border-top: 2px solid #CC1D00;
+}
+
+.ml_reg .reg_cr h2, .ml_reg .reg_cr p {
+  line-height: 60px;
+}
+
+.ml_reg .reg_cr h2 {
+  font-size: 24px;
+}
+
+.ml_reg .reg_cr li {
+  list-style: none;
+}
+
+.ml_reg .reg_cr li input {
+  width: 292px;
+  height: 32px;
+  border: 1px solid #ccc;
+}
+
+.ml_reg .reg_cr li h3 {
+  height: 20px;
+  color: #CC1D00;
+  padding: 6px 6px;
+}
+
+.ml_reg .reg_cr li #reg_code {
+  width: 110px;
+}
+
+.ml_reg .reg_cr li #reg_check {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  float: left;
+}
+
+.ml_reg .reg_cr li .code_img {
+  display: inline-block;
+  width: 60px;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 34px;
+}
+
+.ml_reg .reg_cr li #btn_reg {
+  background-color: #CC1D00;
+  color: #fff;
+  font-size: 20px;
+  height: 40px;
+  line-height: 40px;
+}

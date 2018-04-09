@@ -1,0 +1,95 @@
+@import 'var';
+.ml_login{
+    min-width:1190px;
+    .article{
+        padding-top:30px;
+        width: 1000px;
+        margin:0 auto;
+        font-size:12px;
+    }
+    .login_t{
+        h5{
+            margin-top:20px;
+        }
+    }
+    .login_c{
+        padding-top:40px;
+        height:580px;
+    }
+    .login_cr{
+        float:right;
+        width:290px;
+        height:440px;
+        margin-right:40px;
+        padding:0px 40px;
+        border:1px solid #ccc;
+        border-top:2px solid $mainColor;
+        h2,p{
+            line-height:60px;
+        }
+        h2{
+            font-size:24px;
+        }
+        li{
+            list-style:none;
+            input{
+                width:250px;
+                height: 32px;
+                border:1px solid #ccc;
+            }
+            h3{
+                height:20px;
+                color:$mainColor;
+                padding:6px 6px;
+            }
+            #login_code{
+                width: 110px;
+            }
+            .code_img{
+                display:inline-block;
+                width:60px;
+                background-color:#ccc;
+                text-align:center;
+                line-height:34px;
+                height:34px;
+                vertical-align:center;
+            }
+            #btn_login{
+                background-color:$mainColor;
+                color:#fff;
+                line-height:40px;
+                width:288px;
+                height:40px;
+                font-size:20px;
+            }
+            i{
+                display:inline-block;
+                width:34px;
+                height:34px;
+                position:relative;
+                top:16px;
+                background:url("../img/login.png") no-repeat 0 0;
+            }
+            h4{
+                i:nth-of-type(1){
+                    background-position:-40px*2 0;
+                }
+                i:nth-of-type(2){
+                    background-position:-40px*3 0;
+                }
+                i:nth-of-type(3){
+                    background-position:-40px*3 0;
+                }
+                i:nth-of-type(4){
+                    background-position:-40px*4 0;
+                }
+            }
+        }
+        li:nth-of-type(2) i{
+            background-position:-40px 0;
+        }
+    }
+}
+
+
+
