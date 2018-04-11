@@ -1,0 +1,215 @@
+@import 'var';
+.menu_cont{
+    display:none;
+}
+.ml_nav{
+    border-bottom:1px solid #000;
+}
+.ml_guide{
+    i{font-size:12px;}
+    a{
+        font-size:12px;
+        display:inline-block;
+        line-height:48px;
+        padding-right:16px;
+    }
+}
+.ml_zoom{
+
+    .xzoom-small{
+        width:352px;
+        border:1px solid #ccc;
+    }
+    .xzoom-small img{
+        width:350px;
+        height:352px;
+    }
+    .smallList{
+        position:relative;
+        margin-top:10px;
+        height: 60px;
+        overflow:hidden;
+        ul{
+            position:absolute;
+            left:0;
+            padding-left:30px;
+        }
+        li{
+            list-style:none;
+            float:left;
+            padding-right:10px;
+        }
+        img{
+            width:50px;
+            height:50px;
+            border:1px solid #ccc;
+        }
+        i{
+            display:block;
+            width: 20px;
+            line-height:52px;
+            background-color:#fff;
+            position:absolute;
+        }
+        .left{
+            left:0;
+        }
+        .right{
+            right:0;
+        }
+        .active{
+            border-color:$mainColor;
+        }
+    }
+
+}
+.ml_message{
+    padding-bottom:20px;
+    .selected{
+        background-color:$mainColor;
+        color:#fff;
+    }
+    .choose{
+        border:2px solid $mainColor;
+    }
+    margin-left:28px;
+    width: 600px;
+    font-size:12px;
+    h2{
+        font-size:16px;
+        line-height:26px;
+    }
+    p{
+        color:#999999;
+        font-size:14px;
+        line-height:26px;
+    }
+    section{
+        background-color:#F7F7F7;
+        padding:10px 10px;
+        p{
+            font-size:12px;
+            color:#000;
+        }
+        strong{
+            font-size:16px;
+            color:$mainColor;
+        }
+        a{
+            display:inline-block;
+            line-height:20px;
+            padding:0 10px;
+            margin-right:10px;
+        }
+       
+    }
+    h3{
+        line-height:36px;
+        a{
+            color:#999999;
+        }
+        span{
+            color:red;
+            border-right:1px solid #000;
+            padding:0 10px;
+            margin-right:10px;
+        }
+    }
+    h4{
+        line-height:28px;
+        span{
+            display:block;
+            float:left;
+            width:64px;
+            height:60px;
+        }
+        a{
+            display:inline-block;
+            padding:0 8px;
+            border:1px solid #ccc;
+            margin-bottom:6px;
+            text-align:center;
+        }
+    }
+    
+    h5{
+        line-height:68px;
+        a{
+            display:inline-block;
+            width: 30px;
+            line-height: 30px;
+            text-align:center;
+            border:1px solid #ccc;
+        }
+    }
+    h6{
+        img{
+            width: 16px;
+            height: 24px;
+        }
+        .btn_jian{
+            border:1px solid #ccc;
+            border-right:none;
+        }
+        .btn_jia{
+            border:1px solid #ccc;
+            border-left:none;
+        }
+        input{
+            width: 40px;
+            height:24px;
+            border:1px solid #ccc;
+            text-align:center;
+        }
+    }   
+    .btn_join{
+        display:block;
+        width:186px;
+        font-size:18px;
+        line-height: 50px;
+        margin:20px 0;
+    }
+
+}
+
+.ml_app{
+    float:right;
+    color:#4C87CD;
+    h2{     
+        line-height:46px;
+        text-align:center;
+        border-top:1px solid #4C87CD;
+        border-bottom:1px solid #4C87CD;
+    }
+    li{
+        font-size:12px;
+        line-height:42px;
+        i{
+            display:inline-block;
+            width: 20px;
+            height: 20px;
+            padding-right:6px;
+            background:url("../img/app1.png") no-repeat 0 0;
+            position:relative;
+            top:4px;
+        }
+    }
+    li:nth-child(2) i{
+        background-position:-30px 0;
+    }
+    li:nth-child(3) i{
+        background-position:-60px 0;
+    }
+    h3{
+        color:#000;
+        line-height:28px;
+        span{
+            font-size:20px;
+            color:$mainColor;
+        }
+    }
+    img{
+        width:170px;
+        height:200px;
+    }
+}

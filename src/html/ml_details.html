@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>详情页</title>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/ml_details.css" />
+    <link rel="stylesheet" href="../lib/jquery-xzoom/jquery.xZoom.css">
+    <script src="../js/require.js" data-main="../js/ml_details.js" async></script>
+</head>
+<body>
+    <div class="ml_details">
+        <!-- 吸顶菜单栏 -->
+        <div class="fix_header">
+            <div class="container">
+            <h3 class="fl"><img src="../img/logo2.png" height="40" width="112" alt="" /></h3>
+            <form action="">
+                <input type="text" id="keyword" name="keyword" placeholder="&nbsp;&nbsp;请输入商品名称，支持拼音搜索" autofocus/>
+                <input type="submmit" id="btn-search" value="搜索" />
+            </form>
+            </div>
+        </div>
+        <!--  右边固定菜单栏 -->
+        <div class="fix_cart">
+            <i class="iconfont icon-ren"></i>
+            <div class="btn_cart">
+                <i class="iconfont icon-gouwuche"></i>
+                <p>购物车</p>
+            </div>
+            <ul>
+                <li class="btn_contact">
+                    <i class="iconfont icon-gongzhonghao"></i>
+                    <p>客户经理</p>
+                    <i class="iconfont icon-kefu"></i>
+                    <p>客服</p>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-star"></i></a>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-fanhui"></i></a>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-zhankai"></i></a>
+                </li>
+                <li>
+                    <a href=""><i class="iconfont icon-icon-test"></i></a>
+                </li>
+                <li>
+                   <a href=""><i class="iconfont icon-top02"></i></a> 
+                </li>
+            </ul>
+        </div>
+        <!-- 头部 -->
+        <div class="ml_header">
+            <!-- 头部上 -->
+            <div class="header_t">
+                <div class="container">
+                    <a>
+                        <img src="../img/header_t.png" height="50" width="1040" alt="" />
+                    </a>
+                    <span class="btn_hide fr">关闭</span>
+                </div>
+            </div>
+            <!-- 头部中 -->
+            <div class="header_c">
+                <div class="container clearfix">
+                    <div class="header_cl fl">
+                        <ul class="clearfix">
+                            <li><a href=""><i class="iconfont icon-home"></i>麦乐购首页</a></li>
+                            <li><a href="html/ml_login.html">请登录</a></li>
+                            <li><a href="html/ml_reg.html">免费注册</a></li>
+                            <li>
+                                <a href="">其他登陆方式：
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </a>
+                            </li>
+                            <li><a href="">联系客服：400-666-6600</a></li>
+                        </ul>
+                    </div>
+                    <div class="header_cr fr">
+                        <ul class="clearfix">
+                            <li class="fl rg_list">
+                                <a href=""><span>我的麦乐购<i class="iconfont icon-jiantouxia"></i></span></a>
+                                <ul class="mygou">
+                                    <a href=""><span>我的麦乐购<i class="iconfont icon-jiantoushang"></i></span></a>
+                                    <li class="mg_list"><a href="">我的订单</a></li>
+                                    <li class="mg_list"><a href="">我的账户</a></li>
+                                    <li class="mg_list"><a href="">麦豆兑换</a></li>
+                                    <li class="mg_list"><a href="">我的优惠卷</a></li>
+                                    <li class="mg_list"><a href="">我的收藏</a></li>
+                                </ul>
+                            </li>
+                            <li class="fl rg_list"><a href=""><span><i class="iconfont icon-xingxing"></i>收藏麦乐购</span></a></li>
+                            <li class="fl rg_list"><a href=""><span>妈妈推广计划</span></a></li>
+                            <li class="fl rg_list">
+                              <a href=""><span><i class="iconfont icon-shouji"></i>手机麦乐购</span></a>
+                              <div class="phone_gou">
+                                 <img src="../img/erweima.jpg" height="156" width="120" alt="" /> 
+                              </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>  
+            <!-- 头部下   -->    
+            <div class="header_b">
+                <div class="container clearfix">
+                    <a href="#" class="fl"><img  src="../img/logo.png" height="124" width="232" alt="" /></a>
+                    <div class="header_bc">
+                        <form action="">
+                            <input type="text" id="keyword" name="keyword" placeholder="&nbsp;&nbsp;请输入商品名称，支持拼音搜索" autofocus/>
+                            <input type="submmit" id="btn-search" value="搜索" />
+                        </form>
+                        <ul>
+                            <li>热门关键词:</li>
+                            <li><a href="" class="red">小安素</a></li>
+                            <li><a href="" class="red">防晒</a></li>
+                            <li><a href="">牛栏</a></li>
+                            <li><a href="">花王</a></li>
+                            <li><a href="">美素</a></li>
+                            <li><a href="">爱他美</a></li>
+                            <li><a href="">karicare</a></li>
+                            <li><a href="">喜宝</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>                
+        </div>
+        <div class="container">
+            <!-- 导航部分 -->
+            <div class="ml_nav">         
+                <div class="container">
+                    <!-- 导航条 -->
+                    <div class="nav">
+                        <div class="nav_open">
+                            <h2>全部商品分类</h2>
+                            <ul class="menu_cont">                   
+                            <li>
+                                <span></span>
+                                <h3><a href="">宝宝奶粉</a></h3>        
+                                <p><a href="">牛奶粉</a><a href="">羊奶粉</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="" href="ml_list.html" >荷兰牛栏Nutrilon</a>
+                                        <a class="red" >德国爱他美Aptamil</a>
+                                        <a class="red" >德国喜宝Hipp</a>
+                                        <a class="" >荷兰美素Hero Baby</a>
+                                        <a class=""  >英国牛栏Cow＆Gate</a>
+                                        <a class="red" >新西兰爱他美Aptamil</a>
+                                        <a class="red"  >德国特福芬Topfer</a>
+                                        <a class=""  >英国爱他美Aptamil</a>
+                                        <a class=""  >新西兰Karicare</a>
+                                        <a class="" >澳洲a2</a>
+                                        <a class=""  >德国凯莉泓乐Holle</a>
+                                        <a class=""  >英国Nannycare</a>
+                                        <a class="red"  > 澳洲贝拉米Bellamy's</a>
+                                        <a class="red" >英国纽康特Neocate</a>
+                                        <a class="" >美国美赞臣Meadjohnson</a>
+                                        <a class="" >美国雅培Similac</a>
+                                        <a class="" >新西兰惠氏Wyeth </a>
+                                    </p>
+                                    <p>
+                                        <strong>优惠套餐</strong> 
+                                        <a class="red" >买7送1</a>
+                                        <a class=""  >4罐优惠</a>
+                                        <a class=""  >2罐优惠</a>
+                                    </p>
+                                    <p>
+                                        <strong>适用年龄</strong> 
+                                        <a class="" href="https://www.m6go.com/0_6geyue" >0-6个月</a>
+                                        <a class="" href="https://www.m6go.com/6_12geyue" >6-12个月</a>
+                                        <a class="red" href="https://www.m6go.com/1_2sui" >1-2岁</a>
+                                        <a class="" href="https://www.m6go.com/2_3sui" >2-3岁</a>
+                                        <a class="" href="https://www.m6go.com/3suiyishang" >3-6岁</a>
+                                        <a class="" href="https://www.m6go.com/ertongnaifen" >儿童奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/ertongnaifenzhiyou" >儿童奶粉（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>奶粉分类</strong> 
+                                        <a class="red" href="https://www.m6go.com/niunaifen" >牛奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/yangnaifen" >羊奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/youjinaifen" >有机奶粉</a>
+                                        <a class="" href="https://www.m6go.com/tianjiayishengjunnaifen" >益生菌奶粉</a>
+                                        <a class="" href="https://www.m6go.com/fangguominnaifen" >牛乳蛋白过敏奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/buhanrutang" >乳糖不耐受奶粉</a>
+                                        <a class="" href="https://www.m6go.com/zaochanernaifen" >早产儿奶粉</a>
+                                        <a class="" href="https://www.m6go.com/yunfunaifen" >孕妇奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/zhiyoubaobaonaifen" >宝宝奶粉（直邮）</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">宝宝辅食</a></h3>
+                                <p><a href="">米粉</a><a href="">宝宝零食</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-deguoxibao" >德国喜宝Hipp</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-meiguojiabao" >美国嘉宝Gerber</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-shijiezuihao" >美国世界最好Earth's Best</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-meiguoxibei" >美国禧贝Happybaby</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-rapunzel" >德国长发公主Rapunzel</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-zek" >ZEK</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-tianranshijia" >天然世家</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-hanguobaolulu" >韩国宝噜噜</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-yummyearth" >美国Yummy Earth</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-hengshi" >亨氏Heinz</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-hanguohaidicun" >韩国海地村</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-littlefreddie" >LittleFreddie小皮</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-hanguotuomasi" >韩国托马斯Thomas</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-yiwei" >伊威Eastwes</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-helanniulan" >荷兰牛栏</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-fangguang" >方广</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-ellas" >英国艾拉厨房</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-hanguobaobaofude" >韩国宝宝福德Baby food</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-yidalidaile" >意大利黛乐Dalla Costa</a>
+                                    </p>
+                                    <p>
+                                        <strong>辅食分类</strong> 
+                                        <a class="red" href="https://www.m6go.com/mifenmaifen" >米粉/麦粉/粥</a>
+                                        <a class="red" href="https://www.m6go.com/rouniguonicaini" >肉泥/果泥/菜泥</a>
+                                        <a class="" href="https://www.m6go.com/yinliaoguozhi" >饮料/果汁</a>
+                                        <a class="" href="https://www.m6go.com/tiaoweibanfan" >调味/拌饭/油</a>
+                                        <a class="red" href="https://www.m6go.com/yuchang" >鱼肠/肉肠</a>
+                                        <a class="" href="https://www.m6go.com/miantiaolei" >面条类</a>
+                                        <a class="red" href="https://www.m6go.com/baobaolingshi" >宝宝零食</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushizhiyou" >宝宝辅食（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>月龄</strong> 
+                                        <a class="" href="https://www.m6go.com/baobaofushi-fushitianjiaqi" >辅食添加初期</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-4_6monthfushi" >4-6月</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-7_9monthfushi" >7-9月</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-10_12monthfushi" >10-12月</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-12_36monthfushi" >12至36个月</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-4_36monthfushi" >4至36个月</a>
+                                        <a class="" href="https://www.m6go.com/baobaofushi-6_36monthfushi" >6至36个月</a>
+                                    </p>
+                                    <p>
+                                        <strong>优惠套餐</strong> 
+                                        <a class="" href="https://www.m6go.com/baobaofushi-liangpingyouhuifushi" >2瓶优惠</a>
+                                        <a class="red" href="https://www.m6go.com/baobaofushi-siheyouhuifushi" >4盒优惠</a>
+                                    </p>
+                                    </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">营养保健</a></h3>
+                                <p><a href="">宝宝营养</a><a href="">成人营养</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>宝宝营养热门品牌</strong> 
+                                        <a class="red" href="https://www.m6go.com/baobaoyingyangpin-tongnianshiguang" >美国Childlife</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyingyangpin-bioisland" >澳洲Bio Island</a>
+                                        <a class="red" href="https://www.m6go.com/yingyangpin-xinfulai" >鑫福来</a>
+                                        <a class="red" href="https://www.m6go.com/baobaoyingyangpin-culturelle" >美国康萃乐Culturelle</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyingyangpin-kidsddrops" >加拿大Ddrops</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyingyangpin-nordicnaturals" >挪威小鱼Nordic naturals</a>
+                                        <a class="" href="https://www.m6go.com/yingyangpin-jiasimin" >佳思敏Nature's Way </a>
+                                        <a class="red" href="https://www.m6go.com/yingyangpin-martek" >美国Martek</a>
+                                    </p>
+                                    <p>
+                                        <strong>功效</strong> 
+                                        <a class="" href="https://www.m6go.com/yuyoudha" >DHA/鱼油</a>
+                                        <a class="red" href="https://www.m6go.com/gaimeixintie" > 钙镁锌铁</a>
+                                        <a class="" href="https://www.m6go.com/weishengsu" > 维生素/VD</a>
+                                        <a class="" href="https://www.m6go.com/yishengjun" >益生菌</a>
+                                        <a class="red" href="https://www.m6go.com/bunaoyizhi" >补脑益智</a>
+                                        <a class="red" href="https://www.m6go.com/tigaomianyi" >提高免疫力</a>
+                                        <a class="" href="https://www.m6go.com/tiaojiechangwei" >调节肠胃</a>
+                                        <a class="" href="https://www.m6go.com/qinghuojianghuo" >清火降火</a>
+                                        </p>
+                                    <p>
+                                        <strong>营养人群</strong> 
+                                        <a class="" href="https://www.m6go.com/fumujiankang" >父母健康</a>
+                                        <a class="" href="https://www.m6go.com/nanshibaojian" >男士保健</a>
+                                        <a class="" href="https://www.m6go.com/meilinvshi" >魅力女士</a>
+                                        <a class="" href="https://www.m6go.com/qingshaonianyingyang" >青少年营养</a>
+                                        <a class="" href="https://www.m6go.com/yunchanfuyingyang" >孕妈营养</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyingyang" >宝宝营养</a>
+                                        <a class="red" href="https://www.m6go.com/zhiyoubaobaoyingyangpin" >宝宝营养（直邮）</a>
+                                        <a class="red" href="https://www.m6go.com/chengrenbaojianpinzhiyou" >成人保健品（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>成人营养热门品牌</strong> 
+                                        <a class="red" href="https://www.m6go.com/yingyangpin-aozhousiweisi" >澳洲Swisse</a>
+                                        <a class="" href="https://www.m6go.com/yingyangpin-xinxilanhaojiankang" >新西兰好健康Goodhealth</a>
+                                        <a class="red" href="https://www.m6go.com/yingyangpin-meiguokangbaolai" >美国康宝莱Herbalife</a>
+                                        <a class="" href="https://www.m6go.com/yingyangpin-aozhouaojiabao" >澳洲澳佳宝Blackmores</a>
+                                        <a class="" href="https://www.m6go.com/yingyangpin-healthycare" >澳洲Healthy Care</a>
+                                        <a class="red" href="https://www.m6go.com/yingyangpin-tieyuan" >德国铁元</a>
+                                        <a class="red" href="https://www.m6go.com/yingyangpin-meiguoziranzhibao" >美国自然之宝</a>
+                                        <a class="" href="https://www.m6go.com/yingyangpin-anli" >美国安利Amway</a>
+                                    </p>
+                                    <p>
+                                        <strong>功效</strong> 
+                                        <a class="red" href="https://www.m6go.com/meirongyangyan" >美容养颜</a>
+                                        <a class="red" href="https://www.m6go.com/shoushenpaidu" >瘦身排毒</a>
+                                        <a class="" href="https://www.m6go.com/zengqiangdikangli" >提高免疫力</a>
+                                        <a class="" href="https://www.m6go.com/chengrenbunaoyizhi" >补脑益智</a>
+                                        <a class="red" href="https://www.m6go.com/tiaojieneifenmi" >调节内分泌</a>
+                                        <a class="red" href="https://www.m6go.com/tiaojiesangao" >调节三高</a>
+                                        <a class="" href="https://www.m6go.com/yanpilao" >眼疲劳/明目</a>
+                                        <a class="" href="https://www.m6go.com/changweibaojian" >胃肠调节</a>
+                                        <a class="red" href="https://www.m6go.com/gaishanshuimian" >改善睡眠</a>
+                                        <a class="red" href="https://www.m6go.com/gaishanpinxue" >改善贫血</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">宝宝用品</a></h3>
+                                <p>
+                                    <a href="">纸尿裤</a>
+                                    <a href="">喂养</a>
+                                    <a href="">洗护</a>
+                                </p>  
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="red" href="https://www.m6go.com/zhiniaokushijin-ribenhuawang" >日本花王Merries</a>
+                                        <a class="" href="https://www.m6go.com/zhiniaokushijin-ribenyounijia" >日本尤妮佳Moony</a>
+                                        <a class="" href="https://www.m6go.com/zhiniaokushijin-ribendawang" >日本大王GOO.N</a>
+                                        <a class="red" href="https://www.m6go.com/zhiniaoku-ribenbangbaoshi" >日本帮宝适</a>
+                                        <a class="red" href="https://www.m6go.com/baobaoyongpin-meiguoxiaomifeng-meiguo" >美国小蜜蜂</a>
+                                        <a class="red" href="https://www.m6go.com/baobaoyongpin-jiazhoubaobao-meiguo" >美国加州宝宝CaliforniaBaby</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyongpin-aiweinuo" >美国艾维诺Aveeno</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyongpin-ribenbeiqin" >日本贝亲Pigeon</a>
+                                        <a class="red" href="https://www.m6go.com/baobaoyongpin-deguobolang" >德国博朗</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyongpin-nuk" >德国NUK</a>
+                                        <a class="red" href="https://www.m6go.com/baobaoyongpin-bulangboshi" >美国布朗博士</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyongpin-ribenbeita" >日本贝塔Betta</a>
+                                        <a class="" href="https://www.m6go.com/baobaoyongpin-kemoduomo" >美国可么多么</a>
+                                    </p>
+                                    <p>
+                                        <strong>纸尿裤/湿巾</strong> 
+                                        <a class="red" href="https://www.m6go.com/zhiniaoku" >纸尿裤</a>
+                                        <a class="" href="https://www.m6go.com/lalaku" >拉拉裤</a>
+                                        <a class="" href="https://www.m6go.com/shizhijin" >湿巾</a>
+                                        <a class="" href="https://www.m6go.com/xinshengerzhiniaoku" > NB号</a>
+                                        <a class="" href="https://www.m6go.com/shaozhiniaoku" > S号</a>
+                                        <a class="" href="https://www.m6go.com/mhaozhiniaoku" > M号</a>
+                                        <a class="" href="https://www.m6go.com/lhaozhiniaoku" > L号</a>
+                                        <a class="" href="https://www.m6go.com/xlxxlzhiniaoku" > XL/XXL号</a>
+                                    </p>    
+                                    <p>
+                                        <strong>喂养用品</strong> 
+                                        <a class="red" href="https://www.m6go.com/naiping" >奶瓶/奶嘴</a>
+                                        <a class="" href="https://www.m6go.com/ertongshuibei" >水杯/水壶</a>
+                                        <a class="" href="https://www.m6go.com/yajiaoanfu" >牙胶/安抚</a>
+                                        <a class="red" href="https://www.m6go.com/ertongcanju" >儿童餐具</a>
+                                        <a class="" href="https://www.m6go.com/nuannaixiaodu" >消毒/暖奶/调奶</a>
+                                        <a class="" href="https://www.m6go.com/weidoufangjianyi" >围兜/防溅衣</a>
+                                        <a class="" href="https://www.m6go.com/fushiliaoli" >辅食料理机</a>
+                                        <a class="one1" href="https://www.m6go.com/fuzhupeijian" >奶瓶清洁/配件</a>
+                                        <a class="red" href="https://www.m6go.com/baobaoyongpinzhiyou" >宝宝用品（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>洗护/护理</strong> 
+                                        <a class="red" href="https://www.m6go.com/fangwen" > 防蚊驱蚊</a>
+                                        <a class="" href="https://www.m6go.com/muyuxilie" >沐浴护肤</a>
+                                        <a class="red" href="https://www.m6go.com/hufuxilie" > 护肤系列</a>
+                                        <a class="" href="https://www.m6go.com/hutunxilie" >护臀系列</a>
+                                        <a class="" href="https://www.m6go.com/yashuayagao" >牙刷/牙膏</a>
+                                        <a class="red" href="https://www.m6go.com/xiyuyongju" >洗浴用具</a>
+                                        <a class="" href="https://www.m6go.com/ertongmatong" >坐便器</a>
+                                        <a class="red" href="https://www.m6go.com/lifaqi" > 理发器</a>
+                                        <a class="" href="https://www.m6go.com/yihuyongpin" > 医护用品</a>
+                                        <a class="red" href="https://www.m6go.com/baofanghuyongpin" >防护用品</a>
+                                        <a class="" href="https://www.m6go.com/zhijiaqian" >指甲钳</a>
+                                        <a class="" href="https://www.m6go.com/xishouye" >洗手液 </a>
+                                        <a class="red" href="https://www.m6go.com/xiyiyexishouye" >洗衣液/皂 </a>
+                                        <a class="" href="https://www.m6go.com/naipingguoshuqingxiye" >奶瓶/果蔬清洗液</a>
+                                    </p>
+                                    <p>
+                                        <strong>车床座椅/日常用品</strong> 
+                                        <a class="red" href="https://www.m6go.com/anquanzuoyi" >安全座椅</a>
+                                        <a class="" href="https://www.m6go.com/shoutuiche" >手推车</a>
+                                        <a class="red" href="https://www.m6go.com/yingerchuang" >婴儿床/童床</a>
+                                        <a class="" href="https://www.m6go.com/canyi" > 餐椅 </a>
+                                        <a class="red" href="https://www.m6go.com/ertongxinglixiang" >儿童行李箱</a>
+                                    </p>
+                                </div>               
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3>
+                                    <a href="">宝宝服饰</a>
+                                </h3>
+                                <p>
+                                    <a href="">婴幼服饰</a>
+                                    <a href="">童装</a>
+                                    <a href="">童鞋</a>
+                                </p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="" href="https://www.m6go.com/fushi-babybanz" >BabyBanz</a>
+                                        <a class="" href="https://www.m6go.com/fushi-dishini" >迪士尼Disney</a>
+                                        <a class="" href="https://www.m6go.com/fushi-ruidibeibei" >瑞蒂贝贝Roidubb</a><a class="red" href="https://www.m6go.com/fushi-yingtai" >盈泰</a>
+                                        <a class="" href="https://www.m6go.com/fushi-miaofeideng" >妙菲登</a>
+                                        <a class="" href="https://www.m6go.com/fushi-daiweibeila" >戴维贝拉</a>
+                                        <a class="" href="https://www.m6go.com/fushi-yiyingbao" >意婴堡</a>
+                                        <a class="" href="https://www.m6go.com/fushi-yiyanbaobei" >怡妍宝贝</a>
+                                        <a class="" href="https://www.m6go.com/fushi-maixixi" >麦西西</a>
+                                        <a class="red" href="https://www.m6go.com/fushi-haohaizi" >好孩子</a>
+                                        <a class="" href="https://www.m6go.com/fushi-haimianpaopao" >海绵泡泡</a>
+                                        <a class="" href="https://www.m6go.com/fushi-zhuoyier" >琢伊儿</a>
+                                        <a class="red" href="https://www.m6go.com/fushi-wawashu" >娃娃舒</a>
+                                        <a class="" href="https://www.m6go.com/fushi-banjieweier" >班杰威尔</a>
+                                    </p>
+                                    <p>
+                                        <strong>婴幼服饰</strong> 
+                                        <a class="red" href="https://www.m6go.com/xinshengerlihe" >新生儿礼盒</a>
+                                        <a class="" href="https://www.m6go.com/liantifuhayi" >连体服/哈衣</a>
+                                        <a class="" href="https://www.m6go.com/yingyouneiyiku" >婴幼内衣裤</a>
+                                        <a class="red" href="https://www.m6go.com/yingyouwaichufu" >婴幼外出服</a>
+                                        <a class="red" href="https://www.m6go.com/koushuijinhanjin" >口水巾/汗巾</a>
+                                        <a class="" href="https://www.m6go.com/geniaodian" >隔尿垫/尿布</a>
+                                        <a class="" href="https://www.m6go.com/weidouduwei" >围兜/肚围</a>
+                                    </p>
+                                    <p>
+                                        <strong>童装</strong> 
+                                        <a class="red" href="https://www.m6go.com/tixuchenshan" >T恤/衬衫</a>
+                                        <a class="" href="https://www.m6go.com/kuzi" >裤子</a>
+                                        <a class="red" href="https://www.m6go.com/qunzi" >裙子</a>
+                                        <a class="" href="https://www.m6go.com/qinzizhuang" >亲子装</a>
+                                        <a class="" href="https://www.m6go.com/maoyizhenzhishan" >毛衣/针织衫</a>
+                                        <a class="" href="https://www.m6go.com/weiyiwaitao" >卫衣/外套</a>
+                                        <a class="" href="https://www.m6go.com/taozhuang" >套装</a>
+                                        <a class="" href="https://www.m6go.com/neiyijiajufu" >内衣家居服</a>
+                                        <a class="" href="https://www.m6go.com/majiabeixin" >马甲/背心</a>
+                                        <a class="" href="https://www.m6go.com/mianfuyurongfu" >棉服/羽绒服</a>
+                                        <a class="red" href="https://www.m6go.com/zhiyoubaobaofushilingshi" >宝宝服饰（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>童鞋</strong> 
+                                        <a class="red" href="https://www.m6go.com/xuebujinengxie" >学步/机能鞋</a>
+                                        <a class="" href="https://www.m6go.com/duanxue" >短靴/雪地靴</a>
+                                        <a class="" href="https://www.m6go.com/pixiegongzhuxie" >皮鞋/公主鞋</a>
+                                        <a class="" href="https://www.m6go.com/xiuxianxie" >运动/休闲鞋</a>
+                                    </p>
+                                    <p>
+                                        <strong>寝居配饰</strong> 
+                                        <a class="" href="https://www.m6go.com/yingerzhen" >婴儿枕</a>
+                                        <a class="red" href="https://www.m6go.com/shuidai" >睡袋</a>
+                                        <a class="" href="https://www.m6go.com/maotanbeiru" >毛毯被褥</a>
+                                        <a class="" href="https://www.m6go.com/yingerchuangpintaozhuang" >床上用品</a>
+                                        <a class="" href="https://www.m6go.com/yujinmaojin" >浴巾毛巾</a>
+                                        <a class="" href="https://www.m6go.com/xinshengershoujiaotao" >新生儿手脚套</a>
+                                        <a class="" href="https://www.m6go.com/tongmaoweijinshoutao" >帽子手套</a>
+                                        <a class="" href="https://www.m6go.com/baobaokouzhao" >宝宝口罩</a>
+                                        <a class="" href="https://www.m6go.com/wazi" >袜子</a>
+                                    </p>
+                                </div>      
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">宝宝玩具</a></h3>
+                                <p><a href="">婴幼玩具</a><a href="">遥控/电动</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="" href="https://www.m6go.com/baobaowanju-hape" >德国Hape</a>
+                                        <a class="red" href="https://www.m6go.com/baobaowanju-lego" >乐高LEGO</a>
+                                        <a class="" href="https://www.m6go.com/baobaowanju-meiguofeixue" >美国费雪Fisherprice</a>
+                                        <a class="" href="https://www.m6go.com/baobaowanju-jellycat-yingguo" >英国jellycat</a>
+                                        <a class="red" href="https://www.m6go.com/baobaowanju-aodishuangzuan" >奥迪双钻</a>
+                                        <a class="" href="https://www.m6go.com/baobaowanju-diyijiaoshi" >第一教室</a>
+                                        <a class="" href="https://www.m6go.com/baobaowanju-beiboshi" >贝博氏</a>
+                                        <a class="" href="https://www.m6go.com/baobaowanju-dishini" >迪士尼</a>
+                                        <a class="red" href="https://www.m6go.com/baobaowanju-gougoushou" >勾勾手</a>
+                                    </p>
+                                    <p>
+                                      <strong>积木/绘画/DIY</strong> 
+                                        <a class="" href="https://www.m6go.com/jimu" >积木/拼插</a>
+                                        <a class="red" href="https://www.m6go.com/cilipian" >磁力片</a>
+                                        <a class="" href="https://www.m6go.com/pintu" >拼图</a>
+                                        <a class="" href="https://www.m6go.com/cainihuihua" >彩泥/绘画</a>
+                                        <a class="red" href="https://www.m6go.com/qingjingwanju" >情景玩具</a>
+                                    </p>
+                                    <p>
+                                      <strong>爬行健身/毛绒公仔</strong> 
+                                        <a class="" href="https://www.m6go.com/paxingdiantan" >爬行垫/毯</a>
+                                        <a class="red" href="https://www.m6go.com/shatanxishui" >沙滩/戏水</a>
+                                        <a class="" href="https://www.m6go.com/huwaiwanju" >户外玩具</a>
+                                        <a class="" href="https://www.m6go.com/huabanchelunhua" >滑板车/轮滑</a>
+                                        <a class="red" href="https://www.m6go.com/babiwawa" >芭比娃娃</a>
+                                        <a class="" href="https://www.m6go.com/katongwawa" >卡通娃娃</a>
+                                        <a class="red" href="https://www.m6go.com/maorongwanju" >毛绒玩具</a>
+                                        <a class="" href="https://www.m6go.com/baozhenkaodian" >抱枕/靠垫</a>
+                                    </p>
+                                    <p>
+                                      <strong>动漫/卡通玩具</strong> 
+                                        <a class="red" href="https://www.m6go.com/baobaowanju-lingdongchuangxiang" >灵动创想</a>
+                                        <a class="" href="https://www.m6go.com/bianxingjingangwanju" >变形金刚</a>
+                                        <a class="red" href="https://www.m6go.com/chaojifeixia" >超级飞侠</a>
+                                        <a class="red" href="https://www.m6go.com/jufengzhanhuntuoluo" >飓风战魂/陀螺</a>
+                                        <a class="" href="https://www.m6go.com/baobaowanju-sanbao" >三宝</a>
+                                        <a class="red" href="https://www.m6go.com/jushenzhanjidui" >巨神战击队</a>
+                                        <a class="" href="https://www.m6go.com/balalaxiaomoxian" >巴拉拉小魔仙</a>
+                                        <a class="" href="https://www.m6go.com/kaijiayongshi" >铠甲勇士</a>
+                                        <a class="" href="https://www.m6go.com/jijiashoushen" >机甲兽神/爆裂飞车</a>
+                                        <a class="" href="https://www.m6go.com/qijileyuan" >奇积乐园</a>
+                                        <a class="" href="https://www.m6go.com/mohuancheshen" >魔幻车神</a>
+                                        <a class="" href="https://www.m6go.com/qitakatong" >其他卡通</a>
+                                    </p>
+                                    <p>
+                                      <strong>乐器玩具</strong> 
+                                        <a class="" href="https://www.m6go.com/gangqindianziqin" >钢琴/电子琴</a>
+                                        <a class="" href="https://www.m6go.com/jitabeisi" >吉他/贝斯</a>
+                                        <a class="" href="https://www.m6go.com/qitayueqi" >其他乐器</a>
+                                    </p>
+                                    <p>
+                                      <strong>书籍文具</strong> 
+                                        <a class="red" href="https://www.m6go.com/huiben" >绘本</a>
+                                        <a class="" href="https://www.m6go.com/tansuo" >百科探索</a>
+                                        <a class="" href="https://www.m6go.com/ertongwenxue" >儿童文学</a>
+                                        <a class="red" href="https://www.m6go.com/youshengduwu" >有声读物</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">孕产妇用品</a></h3> 
+                                <p><a href="">孕妈营养</a><a href="">产前产后</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="red" href="https://www.m6go.com/yunchanfuyongpin-anman" >安满Anmum</a>
+                                        <a class="red" href="https://www.m6go.com/yunchanfuyongpin-kaili" >开丽Kaili</a>
+                                        <a class="" href="https://www.m6go.com/yunchanfuyongpin-pamashi" >美国palmer's</a>
+                                        <a class="red" href="https://www.m6go.com/yunchanfuyongpin-ribensanyang" >日本三洋DACCO</a>
+                                        <a class="" href="https://www.m6go.com/yunchanfuyongpin-meiguitaitai" >玫瑰太太</a>
+                                        <a class="" href="https://www.m6go.com/yunchanfuyongpin-shendou" >神豆Simdoo</a>
+                                        <a class="red" href="https://www.m6go.com/yunchanfuyongpin-lansinoh" >美国Lansinoh</a>
+                                        <a class="" href="https://www.m6go.com/yunchanfuyongpin-ruishimeidele" >瑞士美德乐Medela</a>
+                                        <a class="red" href="https://www.m6go.com/yunchanfuyongpin-deguoxibao" >德国喜宝Hipp</a>
+                                        <a class="red" href="https://www.m6go.com/yunchanfuyongpin-bitisi" >碧缇丝</a>
+                                    </p>
+                                    <p>
+                                        <strong>孕妈营养</strong> 
+                                        <a class="" href="https://www.m6go.com/yunchanfunaifen" >孕妇奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/yesuandha" > DHA/叶酸/备孕</a>
+                                        <a class="" href="https://www.m6go.com/yunqiyingyangpin" > 孕期营养</a>
+                                        <a class="red" href="https://www.m6go.com/chanhoutiaolipin" > 产后调理</a>
+                                        <a class="red" href="https://www.m6go.com/cuirucha" >催奶茶</a>
+                                    </p>
+                                    <p>
+                                        <strong>孕妈护肤</strong> 
+                                        <a class="red" href="https://www.m6go.com/mamigerenxihu" >面部护理</a>
+                                        <a class="red" href="https://www.m6go.com/yufangrenshenwen" > 妊娠纹/去疤</a>
+                                        <a class="" href="https://www.m6go.com/shentihuli" >身体护理</a>
+                                        <a class="red" href="https://www.m6go.com/rufanghuli" >乳房护理</a>
+                                        <a class="" href="https://www.m6go.com/yunfukouqianghuli" >口腔护理</a>
+                                        <a class="red" href="https://www.m6go.com/yunfuxifahufa" >洗发护发</a>
+                                    </p>
+                                    <p>
+                                        <strong>孕妇穿着</strong> 
+                                        <a class="" href="https://www.m6go.com/fangfushefu" >防辐射服</a>
+                                        <a class="" href="https://www.m6go.com/wenxiongneiku" >哺乳文胸</a>
+                                        <a class="red" href="https://www.m6go.com/changku" >长裤/托腹裤</a>
+                                        <a class="" href="https://www.m6go.com/yunfuzhuang" >孕妇装</a>
+                                        <a class="red" href="https://www.m6go.com/yunfuneiku" >孕妇内裤</a>
+                                    </p>
+                                    <p>
+                                        <strong>产前产后</strong> 
+                                        <a class="red" href="https://www.m6go.com/rudian" >防溢乳垫</a>
+                                        <a class="" href="https://www.m6go.com/xinaiqi" > 吸奶器</a>
+                                        <a class="red" href="https://www.m6go.com/murubaoxiandai" > 母乳储存</a>
+                                        <a class="red" href="https://www.m6go.com/huyaozhen" > 护腰枕</a>
+                                        <a class="red" href="https://www.m6go.com/daichanbao" > 待产包</a>
+                                        <a class="red" href="https://www.m6go.com/sushenshufudai" >塑身/束腹带 </a>
+                                        <a class="" href="https://www.m6go.com/tuofudai" >托腹带</a>
+                                        <a class="" href="https://www.m6go.com/chanfuweishengjin" >产妇卫生巾</a>
+                                        <a class="" href="https://www.m6go.com/chanfudian" >产妇垫</a>
+                                        <a class="red" href="https://www.m6go.com/mamibao" >妈咪包</a>
+                                        <a class="red" href="https://www.m6go.com/beiyingdai" >背婴带</a>
+                                        <a class="" href="https://www.m6go.com/taixinyi" >胎心仪</a>
+                                        <a class="red" href="https://www.m6go.com/yunchanyongpin" >孕产用品（直邮）</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">个人化妆</a></h3>
+                                <p><a href="">夏季防晒</a><a href="">面部护肤</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-lankou" >兰蔻Lancome</a>
+                                        <a class="red" href="https://www.m6go.com/huazhuangpin-caribbeansol" >美国卡雷小子Caribbean Sol</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-kelaisi" >韩国可莱丝Clinie</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-cloud" >九朵云Cloud 9</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-zishengtang" >资生堂Shiseido</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-xinxilanhongyin" >新西兰红印Red Seal</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-lanzhi" >兰芝Laneige</a>
+                                        <a class="red" href="https://www.m6go.com/huazhuangpin-shuibaobao" >美国水宝宝Coppertone</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-yashilandai" >雅诗兰黛Estée Lauder</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-qianbi" >倩碧Clinique</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangpin-hanguoaimoli" >韩国爱茉莉Amore</a>
+                                        <a class="" href="https://www.m6go.com/nvxinghuli-laurier" >日本花王Laurier</a>
+                                    </p>
+                                    <p>
+                                        <strong>夏季优选</strong> 
+                                        <a class="red" href="https://www.m6go.com/fangshaogeli" >防晒/隔离</a>
+                                        <a class="red" href="https://www.m6go.com/mianmo" >补水面膜</a>
+                                        <a class="red" href="https://www.m6go.com/tuomaogao" >脱毛膏</a>
+                                        <a class="red" href="https://www.m6go.com/fangwen" >防蚊防晒</a>
+                                        <a class="red" href="https://www.m6go.com/shatanxishui" >沙滩/戏水</a>
+                                    </p>
+                                    <p>
+                                        <strong>面部护肤</strong> 
+                                        <a class="red" href="https://www.m6go.com/xiezhuang" >卸妆</a>
+                                        <a class="" href="https://www.m6go.com/ximiannai" >洁面</a>
+                                        <a class="" href="https://www.m6go.com/huazhuangshuangfushui" >化妆/爽肤水</a>
+                                        <a class="red" href="https://www.m6go.com/mianshuangruye" >面霜/乳液</a>
+                                        <a class="" href="https://www.m6go.com/yanbuhuli" >眼部</a>
+                                        <a class="" href="https://www.m6go.com/jinghuayuanye" >精华</a>
+                                        <a class="" href="https://www.m6go.com/hufutaozhuang" >护肤套装</a>
+                                        <a class="red" href="https://www.m6go.com/meizhuanggehuzhiyou" >美妆个护（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>香水彩妆</strong> 
+                                        <a class="red" href="https://www.m6go.com/nvshixiangshui" >女士香水</a>
+                                        <a class="" href="https://www.m6go.com/dizhuang" >粉底/BB霜/遮瑕</a>
+                                        <a class="red" href="https://www.m6go.com/meibimeifen" >眉笔/眉粉</a>
+                                        <a class="" href="https://www.m6go.com/jiemaogao" >睫毛膏</a>
+                                        <a class="red" href="https://www.m6go.com/yanxianyanying" >眼线/眼影</a>
+                                        <a class="red" href="https://www.m6go.com/chungaochuncai" >唇膏/唇彩</a>
+                                        <a class="" href="https://www.m6go.com/saihong" > 腮红</a>
+                                        <a class="" href="https://www.m6go.com/hugongju" >美妆工具</a>
+                                    </p>
+                                    <p>
+                                        <strong>洗发护发/身体护肤/口腔护理/女性护理</strong> 
+                                        <a class="red" href="https://www.m6go.com/xifahufa" >洗发护发</a>
+                                        <a class="" href="https://www.m6go.com/zaoxing" >直发器/卷发器/电吹风</a>
+                                        <a class="red" href="https://www.m6go.com/shentirumuyulu" >身体乳/沐浴露</a>
+                                        <a class="" href="https://www.m6go.com/yagaoyashua" >牙膏/牙刷</a>
+                                        <a class="" href="https://www.m6go.com/weishengjinhudian" >卫生巾/护垫</a>
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <span></span>
+                                <h3><a href="">居家生活</a></h3>          
+                                <p><a href="">食品饮料</a><a href="">生活用品</a></p>
+                                <div class="menu_detail">
+                                    <p>
+                                        <strong>热门品牌</strong> 
+                                        <a class="red" href="https://www.m6go.com/jujiashenghuo-aozhoudeyun" >澳洲德运devondale</a>
+                                        <a class="" href="https://www.m6go.com/jujiashenghuo-xinxilananjia" >安佳</a>
+                                        <a class="red" href="https://www.m6go.com/jujiashenghuo-deguobirande" >德国碧然德Brita</a>
+                                        <a class="" href="https://www.m6go.com/lingshi-xinxilankangweita" >新西兰康维他</a>
+                                        <a class="red" href="https://www.m6go.com/jujiashenghuo-quanlinbense" >泉林本色</a>
+                                        <a class="" href="https://www.m6go.com/jujiashenghuo-beiououmu" >北欧欧慕Nathome</a>
+                                        <a class="red" href="https://www.m6go.com/jujiashenghuo-huiren" >惠人Hurom</a>
+                                    </p>
+                                    <p>
+                                        <strong>成人奶粉/食品饮料</strong> 
+                                        <a class="red" href="https://www.m6go.com/quanzhinaifen" >全脂奶粉</a>
+                                        <a class="" href="https://www.m6go.com/tuozhinaifen" > 脱脂奶粉</a>
+                                        <a class="red" href="https://www.m6go.com/gaogainaifen" > 高钙奶粉</a>
+                                        <a class="" href="https://www.m6go.com/chengrenyangnaifen" > 羊奶粉</a>
+                                        <a class="" href="https://www.m6go.com/bangongshixiuxianshipin" >休闲食品</a>
+                                        <a class="red" href="https://www.m6go.com/jianguoguoren" >坚果/果仁</a>
+                                        <a class="" href="https://www.m6go.com/fengmi" >蜂蜜</a>
+                                        <a class="" href="https://www.m6go.com/bangongshichongtiaopin" >冲调饮品</a>
+                                        <a class="red" href="https://www.m6go.com/suannai" >酸奶/冰淇淋</a>
+                                        <a class="red" href="https://www.m6go.com/zhiyouchengrennaifen" >成人奶粉（直邮）</a>
+                                        <a class="red" href="https://www.m6go.com/shipinyinliaozhiyou" >食品饮料（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>生活日用/居家/布艺</strong> 
+                                        <a class="red" href="https://www.m6go.com/anquanjiance" >安全检测</a>
+                                        <a class="" href="https://www.m6go.com/jiajushouna" >家居收纳</a>
+                                        <a class="" href="https://www.m6go.com/jinghuachuwei" >净化除味</a>
+                                        <a class="red" href="https://www.m6go.com/kouzhao" >口罩</a>
+                                        <a class="" href="https://www.m6go.com/jiatingqingjie" >家庭清洁</a>
+                                        <a class="" href="https://www.m6go.com/yijialiangshai" >衣架/晾晒</a>
+                                        <a class="red" href="https://www.m6go.com/qingyusan" >雨伞/雨具</a>
+                                        <a class="red" href="https://www.m6go.com/shuibeishuihu" >水杯/水壶</a>
+                                        <a class="" href="https://www.m6go.com/neiyishuiyi" >内衣/睡衣</a>
+                                        <a class="red" href="https://www.m6go.com/maojin" >毛巾浴巾</a>
+                                        <a class="" href="https://www.m6go.com/chuangpin" >床上用品</a>
+                                        <a class="red" href="https://www.m6go.com/jujiayongpinzhiyou" >居家用品（直邮）</a>
+                                        <a class="red" href="https://www.m6go.com/qingsheshenghuozhiyou" >轻奢生活（直邮）</a>
+                                    </p>
+                                    <p>
+                                        <strong>个护健康</strong> 
+                                        <a class="red" href="https://www.m6go.com/anmoyishoutuiyi" >按摩器/瘦腿仪</a>
+                                        <a class="red" href="https://www.m6go.com/tizhongqixueyayi" >体重秤/血压计</a>
+                                        <a class="" href="https://www.m6go.com/zuyuqiyutong" >足浴器/浴桶</a>
+                                        <a class="" href="https://www.m6go.com/momaoqi" >磨毛器/粘毛器</a>
+                                    </p>
+                                    <p>
+                                        <strong>麦乐购礼品卡</strong> 
+                                        <a class="" href="https://www.m6go.com/500yuanlipinka" >500元</a>
+                                        <a class="" href="https://www.m6go.com/1000yuanlipinka" >1000元</a>
+                                        <a class="" href="https://www.m6go.com/2000yuanlipinka" >2000元</a>
+                                        <a class="" href="https://www.m6go.com/5000yuanlipinka" >5000元</a>
+                                        <a class="" href="https://www.m6go.com/10000yuanlipinka" >10000元</a>
+                                    </p>
+                                </div> 
+                            </li>
+                        </ul>
+                        </div>
+                        <ul class="nav_list clearfix">
+                            <li><a href=""><span>首页</span></a></li>
+                            <li><a href=""><span>进口奶粉</span></a></li>
+                            <li><a href=""><span>发现好货</span></a></li>
+                            <li><a href=""><span>整点抢</span></a></li>
+                            <li><a href=""><span>天天特卖</span></a></li>
+                            <li><a href=""><span>正品保证</span></a></li>
+                            <li><a href=""><span>海外直邮</span></a></li>
+                            <li><a href=""><span>国家馆</span></a></li>
+                        </ul>
+                        <div class="nav_cart fr">
+                            <a href="" class="btn_js"><i class="iconfont icon-gouwuche"></i>去结算购物车</a>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="ml_guide"></div>
+            <div class="details clearfix">
+                <div class="ml_zoom fl"></div>
+                <div class="ml_message fl"></div>
+                <div class="ml_app">
+                    <h2>麦乐购&nbsp;&nbsp;够安全</h2>
+                    <ul>
+                        <li><i></i>100%海外本土采购</li>
+                        <li><i></i>100%符合三重标准检测</li>
+                        <li><i></i>100%中华保险正品承保</li>
+                    </ul>
+                    <h3>下载APP<span>1</span>元抢好货</h3>
+                    <img src="../img/erweima.jpg" height="334" width="280" alt="" />
+                </div>
+            </div>
+        </div>
+        <!-- 脚部 -->
+        <div class="ml_footer">
+            <!-- 脚部关于mlgo -->
+            <div class="about">
+                <div class="about_link">
+                        <a href=""><span>关于麦乐购</span></a>
+                        <a href=""><span>保税店专区</span></a>
+                        <a href=""><span>服务条款</span></a>
+                        <a href=""><span>商户合作</span></a>
+                        <a href=""><span>O2O合作</span></a>
+                        <a href=""><span>联系我们</span></a>
+                        <a href=""><span>友情链接</span></a>
+                        <a href=""><span>诚聘英才</span></a>
+                        <a href=""><span>手机麦乐购</span></a>
+                        <a href=""><span>意见建议</span></a>
+                        <a href=""><span>媒体报道</span></a>
+                </div>
+                <p>
+                    <a href="">京公网安备：11010102000812号</a>
+                    <a href="">  | 中华保险保单号：021544019311050D000004 | 中华人民共和国出版物经营许可证编号：150023</a>
+                </p>
+                <p><a href="">食品经营许可证编号：JY11101070034785 | 食品卫生许可证编号：110101_JX0020 | 乳制品(含婴幼儿配方乳粉)销售资质 | 营业执照：110101015843954</a></p>
+                <p>Copyright 2006 - 2016 北京麦乐购科技有限公司版权所有 | 京ICP备14022296号 | 中国服务热线：400-666-6600s</p>
+                <div class="newcor">
+                    <a href=""><img src="https://file.m6go.com/g_d0e_tJA~EPKNXBrwHZPx" alt="" /></a>
+                    <a href=""><img src="https://file3.m6go.com/orubbcRtdkilHypd4JgfpB" alt="" /></a>
+                    <a href=""><img src="https://file7.m6go.com/_~chcjKD7Oe3M14qJ01wRt" alt="" /></a>
+                </div>   
+            </div>
+        </div>
+    </div>
+</body>
+</html>

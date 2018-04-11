@@ -1,0 +1,248 @@
+.menu_cont {
+  display: none;
+}
+
+.ml_nav {
+  border-bottom: 1px solid #000;
+}
+
+.ml_guide i {
+  font-size: 12px;
+}
+
+.ml_guide a {
+  font-size: 12px;
+  display: inline-block;
+  line-height: 48px;
+  padding-right: 16px;
+}
+
+.ml_zoom .xzoom-small {
+  width: 352px;
+  border: 1px solid #ccc;
+}
+
+.ml_zoom .xzoom-small img {
+  width: 350px;
+  height: 352px;
+}
+
+.ml_zoom .smallList {
+  position: relative;
+  margin-top: 10px;
+  height: 60px;
+  overflow: hidden;
+}
+
+.ml_zoom .smallList ul {
+  position: absolute;
+  left: 0;
+  padding-left: 30px;
+}
+
+.ml_zoom .smallList li {
+  list-style: none;
+  float: left;
+  padding-right: 10px;
+}
+
+.ml_zoom .smallList img {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+}
+
+.ml_zoom .smallList i {
+  display: block;
+  width: 20px;
+  line-height: 52px;
+  background-color: #fff;
+  position: absolute;
+}
+
+.ml_zoom .smallList .left {
+  left: 0;
+}
+
+.ml_zoom .smallList .right {
+  right: 0;
+}
+
+.ml_zoom .smallList .active {
+  border-color: #CC1D00;
+}
+
+.ml_message {
+  padding-bottom: 20px;
+  margin-left: 28px;
+  width: 600px;
+  font-size: 12px;
+}
+
+.ml_message .selected {
+  background-color: #CC1D00;
+  color: #fff;
+}
+
+.ml_message .choose {
+  border: 2px solid #CC1D00;
+}
+
+.ml_message h2 {
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.ml_message p {
+  color: #999999;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+.ml_message section {
+  background-color: #F7F7F7;
+  padding: 10px 10px;
+}
+
+.ml_message section p {
+  font-size: 12px;
+  color: #000;
+}
+
+.ml_message section strong {
+  font-size: 16px;
+  color: #CC1D00;
+}
+
+.ml_message section a {
+  display: inline-block;
+  line-height: 20px;
+  padding: 0 10px;
+  margin-right: 10px;
+}
+
+.ml_message h3 {
+  line-height: 36px;
+}
+
+.ml_message h3 a {
+  color: #999999;
+}
+
+.ml_message h3 span {
+  color: red;
+  border-right: 1px solid #000;
+  padding: 0 10px;
+  margin-right: 10px;
+}
+
+.ml_message h4 {
+  line-height: 28px;
+}
+
+.ml_message h4 span {
+  display: block;
+  float: left;
+  width: 64px;
+  height: 60px;
+}
+
+.ml_message h4 a {
+  display: inline-block;
+  padding: 0 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.ml_message h5 {
+  line-height: 68px;
+}
+
+.ml_message h5 a {
+  display: inline-block;
+  width: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.ml_message h6 img {
+  width: 16px;
+  height: 24px;
+}
+
+.ml_message h6 .btn_jian {
+  border: 1px solid #ccc;
+  border-right: none;
+}
+
+.ml_message h6 .btn_jia {
+  border: 1px solid #ccc;
+  border-left: none;
+}
+
+.ml_message h6 input {
+  width: 40px;
+  height: 24px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.ml_message .btn_join {
+  display: block;
+  width: 186px;
+  font-size: 18px;
+  line-height: 50px;
+  margin: 20px 0;
+}
+
+.ml_app {
+  float: right;
+  color: #4C87CD;
+}
+
+.ml_app h2 {
+  line-height: 46px;
+  text-align: center;
+  border-top: 1px solid #4C87CD;
+  border-bottom: 1px solid #4C87CD;
+}
+
+.ml_app li {
+  font-size: 12px;
+  line-height: 42px;
+}
+
+.ml_app li i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  padding-right: 6px;
+  background: url("../img/app1.png") no-repeat 0 0;
+  position: relative;
+  top: 4px;
+}
+
+.ml_app li:nth-child(2) i {
+  background-position: -30px 0;
+}
+
+.ml_app li:nth-child(3) i {
+  background-position: -60px 0;
+}
+
+.ml_app h3 {
+  color: #000;
+  line-height: 28px;
+}
+
+.ml_app h3 span {
+  font-size: 20px;
+  color: #CC1D00;
+}
+
+.ml_app img {
+  width: 170px;
+  height: 200px;
+}

@@ -1,60 +1,19 @@
 require(['config'],function(){
-    require(['jquery','xZoom'],function($){
-
-        //关掉头部固定广告
-        let $header_t = $('.header_t');
-        let $btn_hide = $('.btn_hide');
-        $btn_hide.on('click',function(){
-            $header_t.stop().fadeOut();
-        })
-
-        //导航动画
-        let $menu_d = $('.menu_detail'); 
-        let $menu_li = $menu_d.parent('li');
-        let $menu_cont = $('.menu_cont');
-        let $nav_open = $('.nav_open');
-
-        //hover时显示菜单栏
-        $nav_open.on('mouseover',function(){
-           $menu_cont.css('display','block');
-        }).on('mouseout',function(){
-            $menu_cont.css('display','none');
-        })
-        
-        $menu_li.on('mouseover',function(){
-            //显示隐藏
-            $(this).children('.menu_detail').css('display','block').stop().animate({left:180},200);
-            //左右滑动
-            $(this).children('span').stop().animate({marginLeft:10},200);
-            //字体颜色
-            $(this).children('p').children('a').css('color','#fff');
-            //背景颜色
-            $(this).css('backgroundColor','#CC1D00');
-        }).on('mouseout',function(){
-            $(this).children('.menu_detail').css('display','none').stop().animate({left:170},200);
-            $(this).children('span').stop().animate({marginLeft:0},200);
-            $(this).children('p').children('a').css('color','#ECA598');
-            $(this).css('backgroundColor','#CB3E25');
-        })
-
-        //搜索框吸顶
-        let fix_header = $('.fix_header')[0];
-        window.onscroll = function(){
-        // 获取滚动条滚动过的距离
-        var scrollTop = window.scrollY;
-        if(scrollTop >= 400){
-            fix_header.style.display='block';
-        }else{
-             fix_header.style.display='none';
-        }
-        }
+    require(['jquery','base'],function($){
 
         //手风琴
         let $type_open = $('.type_open');
         $type_open.on('click',function(){
             $(this).toggleClass('icon-jia');
             $(this).toggleClass('icon-iconset0187');
-            $(this).parent('h4').next('li').toggleClass('block');
+
+            let $target = $(this).parent('h4').next('li')
+            $target.toggleClass('block');
+            if($target.hasClass('block')){
+                $target.stop().slideDown(300);
+            }else{
+                $target.stop().slideUp(300);
+            }
         })
 
         //热卖商品
@@ -74,29 +33,37 @@ require(['config'],function(){
                     //左边热销推荐
                     let $p = $('<p/>');
                     $p.attr('data-mlid',item.id);
-                    let $img = $('<img src="'+item.imgurl1+'"></img>');
+                    let $img = $('<a><img src="'+item.imgurl1+'"></img>');
                     let $h3 = $('<h3>'+item.mlname+'</h3>');
                     let $h4 = $('<h4>￥'+item.special+'(7.8折)</h4>');
                     let $h5 = $('<h5>'+item.sale+'位用户购买</h5>');
+
                     $p.append($img).append($h3).append($h4).append($h5);
                     $hot_sale.append($p);
+
+
                     //右边热销推荐
                     let $li = $('<li/>');
                     $li.attr('data-mlid',item.id);
-                    $img = $('<img src="'+item.imgurl1+'"></img>');
+                    $img = $('<a><img src="'+item.imgurl1+'"></img>');
                     $h3 = $('<h3>'+item.mlname+'</h3>');
                     $h4 = $('<h4>￥'+item.special+'(7.8折)</h4>');
                     $h5 = $('<del>￥'+item.market+'</del>');
-                    $li.append($img).append($h3).append($h4).append($h5);
+                    $button = $('<button class="selected">立刻抢购</button>');
+
+                    $li.append($img).append($h3).append($h4).append($h5).append($button);
                     $ul.append($li);
                     $hot_sell.append($ul).append($left).append($right);
+
                     let length = $ul.children('li').length;
-                    let width = $ul.children('li').width();
+                    //一定要用outerWidth
+                    let width = $ul.children('li').outerWidth();
                     $ul.width(length*width)
                     //左右切换
                     let target = 0;
                     $right[0].onclick=function(){
                             target -= width*4;
+                            //最后一个列表有几个width就乘以几
                             if(target <= -length*width + width*4){
                                 target = -length*width + width*4;
                             }
@@ -110,6 +77,9 @@ require(['config'],function(){
                                 $ul.animate({'left':target})
                             }
                         }
+
+
+                        
                     })
                 }
             })
@@ -126,8 +96,8 @@ require(['config'],function(){
                 data = JSON.parse(data);
                 data.map(function(item){
                     let $p = $('<p></p>');
-                    $p.attr('data-mlid'+item.id);
-                    let $img = $('<img src="'+item.imgurl1+'"></img>');
+                    $p.attr('data-mlid',item.id);
+                    let $img = $('<a><img src="'+item.imgurl1+'"></img>');
                     let $h3 = $('<h3>'+item.mlname+'</h3>');
                     let $h4 = $('<h4>￥'+item.special+'(7.8折)</h4>');
                     let $h5 = $('<h5>'+item.comment+'位用户评论</h5>');
@@ -136,6 +106,8 @@ require(['config'],function(){
                 })
             }
         })
+
+
         // tab标签切换
         let $items = $('.hot_tab').children('li');
         let $contents = $('.hot_content').children('li');
@@ -202,7 +174,7 @@ require(['config'],function(){
                 ul.innerHTML = res.data.map(function(item,i){
                         //return不能跨行
                         return  `<li data-mlid = ${item.id}>
-                                <img src = "${item.Bimgurl1}"/>
+                                <a class="goodsImg"><img src = "${item.Bimgurl1}"/></a>
                                 <h3>${item.mlname}</h3>  
                                 <h4>
                                     <strong>￥${item.special}</strong><del>￥${item.market}</del><span>特卖<span/>
@@ -212,6 +184,9 @@ require(['config'],function(){
                 }).join('');
                 //第一次不用清空页面
                 $goods_list.append(ul);
+                //书写记录
+                let $record = $('.record')
+                $record[0].innerHTML='共有<i>'+res.total+'</i>条记录';
                 pageLen = Math.ceil(res.total/res.qty);
                 respage = res.page;
                 creatPage();
@@ -240,7 +215,7 @@ require(['config'],function(){
                 ul.innerHTML = res.data.map(function(item,i){
                         //return不能跨行
                         return  `<li data-mlid = ${item.id}>
-                                <img src = "${item.Bimgurl1}"/>
+                                <a class="goodsImg"><img src = "${item.Bimgurl1}"/></a>
                                 <h3>${item.mlname}</h3>  
                                 <h4>
                                     <strong>￥${item.special}</strong><del>￥${item.market}</del><span>特卖<span/>
@@ -250,6 +225,9 @@ require(['config'],function(){
                 }).join(''); 
                 $goods_list.html('');               
                 $goods_list.append(ul);
+                //书写记录
+                let $record = $('.record')
+                $record[0].innerHTML='共有<i>'+res.total+'</i>条记录';
                 pageLen = Math.ceil(res.total/res.qty);
                 respage = res.page;
                 creatPage();
@@ -286,7 +264,7 @@ require(['config'],function(){
                     ul.innerHTML = res.data.map(function(item,i){
                         //return不能跨行
                         return  `<li data-mlid = ${item.id}>
-                                <img src = "${item.Bimgurl1}"/>
+                                <a class="goodsImg"><img src = "${item.Bimgurl1}"/></a>
                                 <h3>${item.mlname}</h3>  
                                 <h4>
                                     <strong>￥${item.special}</strong><del>￥${item.market}</del><span>特卖<span/>
@@ -296,6 +274,9 @@ require(['config'],function(){
                     }).join('');
                     $goods_list.html('');                    
                     $goods_list.append(ul);
+                    //书写记录
+                    let $record = $('.record')
+                    $record[0].innerHTML='共有<i>'+res.total+'</i>条记录';
                     pageLen = Math.ceil(res.total/res.qty);
                     respage = res.page;
                     creatPage();
@@ -330,7 +311,7 @@ require(['config'],function(){
                     ul.innerHTML = res.data.map(function(item,i){
                         //return不能跨行
                         return  `<li data-mlid = ${item.id}>
-                                <img src = "${item.Bimgurl1}"/>
+                                <a class="goodsImg"><img src = "${item.Bimgurl1}"/></a>
                                 <h3>${item.mlname}</h3>  
                                 <h4>
                                     <strong>￥${item.special}</strong><del>￥${item.market}</del><span>特卖<span/>
@@ -340,6 +321,9 @@ require(['config'],function(){
                     }).join('');
                     $goods_list.html('');                    
                     $goods_list.append(ul);
+                    //书写记录
+                    let $record = $('.record')
+                    $record[0].innerHTML='共有<i>'+res.total+'</i>条记录';
                     pageLen = Math.ceil(res.total/res.qty);
                     respage = res.page;
                     creatPage();
@@ -374,7 +358,7 @@ require(['config'],function(){
                     ul.innerHTML = res.data.map(function(item,i){
                         //return不能跨行
                         return  `<li data-mlid = ${item.id}>
-                                <img src = "${item.Bimgurl1}"/>
+                                <a class="goodsImg"><img src = "${item.Bimgurl1}"/></a>
                                 <h3>${item.mlname}</h3>  
                                 <h4>
                                     <strong>￥${item.special}</strong><del>￥${item.market}</del><span>特卖<span/>
@@ -384,6 +368,9 @@ require(['config'],function(){
                     }).join('');
                     $goods_list.html('');                    
                     $goods_list.append(ul);
+                    //书写记录
+                    let $record = $('.record')
+                    $record[0].innerHTML='共有<i>'+res.total+'</i>条记录';
                     pageLen = Math.ceil(res.total/res.qty);
                     respage = res.page;
                     creatPage();
@@ -415,16 +402,20 @@ require(['config'],function(){
                     ul.innerHTML = res.data.map(function(item,i){
                         //return不能跨行
                         return  `<li data-mlid = ${item.id}>
-                                <img src = "${item.Bimgurl1}"/>
+                                <a><img src = "${item.Bimgurl1}"/><a/>
                                 <h3>${item.mlname}</h3>  
                                 <h4>
                                     <strong>￥${item.special}</strong><del>￥${item.market}</del><span>特卖<span/>
                                 <h4/>
-                                <a>销量：${item.sale}</a><a>评价：${item.comment}</a>
+                                <a>销量：${item.sale}</a>
+                                <a>评价：${item.comment}</a>
                             </li>`
                     }).join('');
                     $goods_list.html('');                    
                     $goods_list.append(ul);
+                    //书写记录
+                    let $record = $('.record')
+                    $record[0].innerHTML='共有<i>'+res.total+'</i>条记录';
                     pageLen = Math.ceil(res.total/res.qty);
                     respage = res.page;
                     creatPage();
@@ -474,6 +465,25 @@ require(['config'],function(){
         }
 
 
+        //点击传递参数
+        $hot_sell.on('click','li',function(){
+            let id = $(this).attr('data-mlid');
+            $(this).find('a')[0].href = "ml_details.html?" + id;
+        })
+        $hot_sale.on('click','p',function(){
+            console.log($(this))
+            let id = $(this).attr('data-mlid');
+            $(this).find('a')[0].href = "ml_details.html?" + id;
+        })
+        $hot_com.on('click','p',function(){
+            let id = $(this).attr('data-mlid');
+            $(this).find('a')[0].href = "ml_details.html?" + id;
+        })
+        $goods_list.on('click','li',function(){
+            let id = $(this).attr('data-mlid');
+            $(this).find('a')[0].href = "ml_details.html?" + id;
+        })
+        
+
     });
-    
 });

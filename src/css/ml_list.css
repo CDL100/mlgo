@@ -34,10 +34,6 @@
   background-color: #F7F7F7;
 }
 
-.ml_type .block {
-  display: block;
-}
-
 .ml_type li {
   display: none;
   border: 1px solid #ccc;
@@ -96,12 +92,13 @@
   display: none;
 }
 
-.ml_hot .hot_content img {
+.ml_hot .hot_content a {
   float: left;
+  display: inline-block;
   transition: 0.8s;
 }
 
-.ml_hot .hot_content img:hover {
+.ml_hot .hot_content a:hover {
   transform: scale(1.2, 1.2);
 }
 
@@ -179,9 +176,8 @@
 }
 
 .hot_sell {
-  width: 880px;
+  width: 960px;
   border: 1px solid #ccc;
-  padding: 0 40px;
   position: relative;
   height: 140px;
   overflow: hidden;
@@ -190,33 +186,42 @@
 .hot_sell ul {
   position: absolute;
   height: 140px;
+  padding-left: 40px;
+  left: 0;
+  top: 0;
 }
 
 .hot_sell li {
-  padding-top: 18px;
+  padding-top: 20px;
   width: 220px;
   list-style: none;
   float: left;
   font-size: 12px;
-  margin-right: 10px;
+  padding-right: 10px;
 }
 
-.hot_sell img {
+.hot_sell a {
   float: left;
   display: inline-block;
-  width: 100px;
-  height: 110px;
   padding-right: 8px;
   transition: 0.8s;
 }
 
-.hot_sell img:hover {
+.hot_sell img {
+  width: 90px;
+  height: 100px;
+}
+
+.hot_sell a:hover {
   transform: scale(1.2, 1.2);
 }
 
 .hot_sell h3 {
-  color: #777777;
+  width: 88px;
   line-height: 18px;
+  height: 36px;
+  color: #777777;
+  overflow: hidden;
 }
 
 .hot_sell h4 {
@@ -229,13 +234,20 @@
   color: #CDD5E2;
 }
 
+.hot_sell button {
+  margin-top: 10px;
+  display: block;
+  line-height: 26px;
+  width: 82px;
+  border-radius: 4px;
+}
+
 .hot_sell i {
-  font-size: 34px;
-  border: 1px solid #ccc;
+  display: block;
+  font-size: 30px;
+  width: 30px;
+  line-height: 140px;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10px;
   background-color: #fff;
 }
 
@@ -274,7 +286,12 @@
 .choose dt {
   font-weight: bold;
   width: 70px;
-  display: inline-block;
+  display: block;
+  float: left;
+}
+
+.choose dl:nth-of-type(2) dt {
+  height: 100px;
 }
 
 .choose dd {
@@ -286,6 +303,10 @@
 .choose dd:hover {
   background-color: #CC1D00;
   color: #fff;
+}
+
+.goods_list {
+  padding-bottom: 40px;
 }
 
 .goods_list ul {
@@ -305,10 +326,19 @@
   padding-right: 0;
 }
 
+.goods_list .goodsImg {
+  display: inline-block;
+  padding-top: 40px;
+  transition: transform 0.8s;
+}
+
 .goods_list img {
   width: 184px;
   height: 188px;
-  padding-top: 40px;
+}
+
+.goods_list .goodsImg:hover {
+  transform: scale(1.2, 1.2);
 }
 
 .goods_list h3 {
@@ -328,7 +358,7 @@
   margin-right: 6px;
 }
 
-.goods_list a {
+.goods_list h4 a {
   display: inline-block;
   width: 48%;
   line-height: 24px;

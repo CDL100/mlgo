@@ -9,12 +9,14 @@ require.config({
 		// 格式：别名:真实路径（基于baseUrl）
 		jquery:'../lib/jquery-3.2.1',
 		zBanner:'../lib/jquery-zBanner/jquery-zBanner',
-		xZoom:'../lib/jquery-xZoom/jquery.xZoom'
+		xZoom:'../lib/jquery-xZoom/jquery.xZoom',
+		base:'base'
 	},
 
 	// 配置依赖,确定顺序
 	shim:{
 		zBanner:['jquery'],
-		xZoom:['jquery']
+		xZoom:['jquery'],
+		base:['jquery']
 	}
 });

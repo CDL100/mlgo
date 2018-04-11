@@ -60,12 +60,13 @@
         //得到总数
         $data = $result->fetch_all(MYSQLI_ASSOC);
         json_encode($data,JSON_UNESCAPED_UNICODE);
-            $res = array(
-                "total" => $total,
-                "data" => $data,
-                "qty" => $qty*1,
-                "page" => $page*1
-            );
+        $res = array(
+            "total" => $total,
+            "data" => $data,
+            "qty" => $qty*1,
+            "page" => $page*1
+        );
+        $result->close();
         echo json_encode($res,JSON_UNESCAPED_UNICODE);
     }
 ?>
