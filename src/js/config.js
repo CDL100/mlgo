@@ -15,6 +15,6 @@ require.config({
 	// 配置依赖,确定顺序
 	shim:{
 		zBanner:['jquery'],
-		zZoom:['jquery']
+		xZoom:['jquery']
 	}
 });

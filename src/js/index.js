@@ -1,6 +1,12 @@
 
 require(['config'],function(){
     require(['jquery','zBanner'],function($){
+        //关掉头部固定广告
+        let $header_t = $('.header_t');
+        let $btn_hide = $('.btn_hide');
+        $btn_hide.on('click',function(){
+            $header_t.stop().fadeOut();
+        })
 
         //导航动画
         let $menu_d = $('.menu_detail'); 

@@ -462,9 +462,11 @@ s, i, em {
   width: 180px;
   line-height:36px;
   background-color:$mainColor;
-  text-align:center;
-  color:$linkColor;
   float:left;
+  h2{
+    text-align:center;
+    color:$linkColor;
+  }
 }
 /*导航条*/
 .nav{
@@ -505,15 +507,12 @@ s, i, em {
 }
 
 /*菜单栏*/
-.menu{
-  width:1190px;
-  position:absolute;
-}
+
 .menu_cont{
   width:180px;
   font-size:$twelve;
   background-color:$navColor;
-  position:relative;
+  position:absolute;
   z-index:10;
   li{
     height:46px;
@@ -554,12 +553,15 @@ s, i, em {
   li:nth-child(9) span{
     background-position:0 -60*3px;
   }
-  a{
-      display:inline-block;
+  h3{
       line-height:20px;
-      color:#fff;
+      a{
+        font-size:14px;
+        color:#fff;
+      }
     }
   p{
+    line-height:16px;
     a{
       color:$nfontColor;
       margin-right:4px;
@@ -596,7 +598,7 @@ s, i, em {
 .menu_ad{
   position:absolute;
   right:0;
-  top:0;
+  top:36px;
   z-index:10;
   a{
     display:block;

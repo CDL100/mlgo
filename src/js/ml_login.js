@@ -27,7 +27,7 @@ require(['config'],function(){
         
         // 登录验证
         $btn_login.on('click',function(){
-            ajax({
+            $.ajax({
             url:'../api/ml_login.php',
             data:{
                 username:$login_name.val(),

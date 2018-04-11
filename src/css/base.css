@@ -496,9 +496,12 @@ s, i, em {
   width: 180px;
   line-height: 36px;
   background-color: #CC1D00;
+  float: left;
+}
+
+.nav_open h2 {
   text-align: center;
   color: #fff;
-  float: left;
 }
 
 /*导航条*/
@@ -544,16 +547,11 @@ s, i, em {
 }
 
 /*菜单栏*/
-.menu {
-  width: 1190px;
-  position: absolute;
-}
-
 .menu_cont {
   width: 180px;
   font-size: 12px;
   background-color: #CB3E25;
-  position: relative;
+  position: absolute;
   z-index: 10;
 }
 
@@ -606,10 +604,17 @@ s, i, em {
   background-position: 0 -180px;
 }
 
-.menu_cont a {
-  display: inline-block;
+.menu_cont h3 {
   line-height: 20px;
+}
+
+.menu_cont h3 a {
+  font-size: 14px;
   color: #fff;
+}
+
+.menu_cont p {
+  line-height: 16px;
 }
 
 .menu_cont p a {
@@ -652,7 +657,7 @@ s, i, em {
 .menu_ad {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 36px;
   z-index: 10;
 }
 
