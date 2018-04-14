@@ -1,7 +1,7 @@
 <?php
     require('connect.php');
-    $sql = "select * from ml_goods_cat where cat_id=1";
+    $sql = "select * from type";
     $result = $conn->query($sql);
-    $res = $result->fetch_assoc();
-    echo json_encode($res);
+    $res = $result->fetch_all(MYSQLI_ASSOC);
+    echo json_encode($res,JSON_UNESCAPED_UNICODE);
 ?>

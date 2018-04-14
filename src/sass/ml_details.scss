@@ -101,6 +101,9 @@
             padding:0 10px;
             margin-right:10px;
         }
+        .login:hover{
+            cursor:pointer;
+        }
        
     }
     h3{
@@ -168,6 +171,9 @@
         font-size:18px;
         line-height: 50px;
         margin:20px 0;
+    }
+    .btn_join:hover{
+        cursor:pointer;
     }
 
 }

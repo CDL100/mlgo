@@ -155,7 +155,7 @@ s, i, em {
   top:0;
   left:0;
   right:0;
-  z-index:20;
+  z-index:40;
   width: 100%;
   height: 42px;
   background-color:#444851;
@@ -183,17 +183,20 @@ s, i, em {
 
 
 //右边固定菜单栏
-.fix_cart{
+.fix_right{
   position:fixed;
   right:0;
   top:0;
+  height:100%;
+  z-index:40;
+}
+.fix_cart{
   width:34px;
-  height: 100%;
+  height:100%;
   color:#fff;
   background-color:#444851;
   padding:60px 0px;
   text-align:center;
-  z-index:10;
   i{
     font-size:18px;
   }
@@ -203,6 +206,15 @@ s, i, em {
     p{
       margin-top:10px;
       font-size:12px;
+      i{
+        display:block;
+        margin-top:10px;
+        width:22px;
+        line-height:22px;
+        font-size:14px;
+        border-radius:50%;
+        background-color:$mainColor;
+      }
     }
   }
   .btn_cart:hover{
@@ -228,7 +240,89 @@ s, i, em {
     }
   }
 }
+.cart_list{
+  position:absolute;
+  width:292px;
+  height:100%;
+  left:34px;
+  top:0;
+  background-color:#DDDDDD;
+  font-size:12px;
+  h2{
+    line-height:32px;
+    background-color:#EEEEEE;
+    padding:0 10px;
+  }
+  h3{
+    line-height:28px;
+    padding: 4px 10px;
+    span{
+      color:#000;
+    }
+    i{
+      text-align:center;
+      font-size:12px;
+      display:inline-block;
+      width: 80px;
+      line-height:26px;
+      border-radius:4px;
+      background-color:#F26B67;
+    }
+  }
+  .menu{
+    height:100px;
+    img{
+      display:block;
+      margin:0 auto;
+    }
+    p{
+      font-size:14px;
+      color:#999;
+      width:140px;
+      margin:10px auto;
+    }
+    a{
+      font-size:16px;
+    }
+    li{
+      padding:6px 10px;
+      margin-top:10px;
+      list-style:none;
+      background-color:#F2F2F2;
+    }
+    h5{
+      width:180px;
+      padding-left:10px;
+      color:#7D6666;
 
+    }
+    h6{
+      color:#4E0000;
+    }
+  }
+
+  h4{
+    line-height:30px;
+    padding:10px 10px;
+    position:absolute;
+    left:0;
+    width:272px;
+    bottom:0px;
+    background-color:#CCCCCC;
+    color:#000;
+    button{
+      a{
+        display:inline-block;
+        width: 100px;
+        line-height:30px;
+        border-radius:4px;
+        color:#fff;
+        background-color:$mainColor;
+      }
+      
+    }
+  }
+}
 
 
 
@@ -391,11 +485,17 @@ s, i, em {
           display:block;
           background-color:#fff;
           box-shadow:0px 2px 2px 2px #ccc;
+          span{
+            border-left-color:#fff;
+          }
         }
     }
     
     .rg_list:nth-of-type(4){
-       position:relative;
+        position:relative;
+        span{
+          border-left:none;
+        }
        .phone_gou{
         display:none;        
         right:0;
@@ -497,7 +597,7 @@ s, i, em {
   height:36px;
   text-align:center;
   background-color:#F9F9F9;
-  font-size:12px;
+  font-size:16px;
   box-shadow:0px 0px 1px 0px #ccc;
   i{
     font-size:30px;

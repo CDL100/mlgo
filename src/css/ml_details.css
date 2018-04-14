@@ -121,6 +121,10 @@
   margin-right: 10px;
 }
 
+.ml_message section .login:hover {
+  cursor: pointer;
+}
+
 .ml_message h3 {
   line-height: 36px;
 }
@@ -195,6 +199,10 @@
   font-size: 18px;
   line-height: 50px;
   margin: 20px 0;
+}
+
+.ml_message .btn_join:hover {
+  cursor: pointer;
 }
 
 .ml_app {
