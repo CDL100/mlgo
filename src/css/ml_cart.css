@@ -1,4 +1,4 @@
-.ml_cart .container {
+.container {
   width: 1000px;
 }
 
@@ -179,4 +179,97 @@
   background-color: #CC1D00;
   color: #fff;
   font-size: 16px;
+}
+
+.ml_recommend {
+  border-top: 1px solid #ccc;
+  padding-bottom: 40px;
+  margin-top: 20px;
+  position: relative;
+}
+
+.ml_recommend h2 {
+  line-height: 50px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.ml_recommend i {
+  display: block;
+  position: absolute;
+  font-size: 20px;
+  line-height: 60px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #000;
+  background-color: #F1F1F1;
+}
+
+.ml_recommend .left {
+  left: 0;
+}
+
+.ml_recommend .right {
+  right: 0;
+}
+
+.ml_record {
+  font-size: 12px;
+  width: 880px;
+  height: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.ml_record ul {
+  position: absolute;
+}
+
+.ml_record li {
+  float: left;
+  width: 200px;
+  padding: 0 10px;
+}
+
+.ml_record a {
+  display: block;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+.ml_record a:hover {
+  border-color: #ccc;
+  cursor: pointer;
+}
+
+.ml_record img {
+  width: 180px;
+  height: 180px;
+}
+
+.ml_record h3 {
+  color: #666;
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+
+.ml_record h4 {
+  color: #999;
+  line-height: 30px;
+}
+
+.ml_record strong {
+  display: block;
+  font-size: 14px;
+  color: #CC1D00;
+}
+
+.ml_record .btn_add {
+  width: 100px;
+  line-height: 30px;
+  color: #fff;
+  background-color: #CC1D00;
 }

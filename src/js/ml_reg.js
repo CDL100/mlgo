@@ -97,14 +97,12 @@ require(['config'],function(){
                 if(!$reg_check[0].checked){
                     $btn_reg.next('h3').html('请同意注册');
                 }else{
-                    location.href="../index.html";
+                    let username = $reg_name.val();
+                    location.href="../index.html?"+username;
                 }
             }
         })
     })
-
-
-
 
 
     });

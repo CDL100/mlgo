@@ -1,7 +1,7 @@
 require(['config'],function(){
     require(['jquery'],function($){
 
-        
+          
         //关掉头部固定广告
         let $header_t = $('.header_t');
         let $btn_hide = $('.btn_hide');
@@ -73,7 +73,7 @@ require(['config'],function(){
 
         //生成购物车
         $.ajax({
-            url:'../api/ml_cart.php',
+            url:'../api/ml_getCart.php',
             data:{
                 type:'get'
             },
@@ -92,7 +92,7 @@ require(['config'],function(){
                     //商品总价
                     let single_p = [];
 
-                    $main[0].outerHTML = data.map(function(item){
+                    $main[0].innerHTML = data.map(function(item){
                         //得到单个数量
                         single_q.push(item.count*1);
                         //得到单个商品总价
@@ -120,45 +120,86 @@ require(['config'],function(){
                             return a+b;
                     })
                     $total_price.html(total_price);
-
-                    $('.goods_list .btn_gou').on('click',function(){
-                        //点击改变右边固定列表数量        
-                        let $curentLi = $(this).closest('li');          
-                        total_qty++;
-                        $total_qty.html(total_qty);
-                        let data_mlid = $curentLi.data('mlid');
-                        $('.menu li').map(function(i,item){
-                            if(item.dataset.mlid==data_mlid){
-                                let val = $(item).find('.qty').text();
-                                val++;
-                                $(item).find('.qty').text(val);
-                            }
-                        })
-                    })
-
-
-
-
-
-
                 }//else
             }//function
         })//ajax
         
+        //点击时添加到购物车列表
+        setTimeout(function(){
+            $('.goods_list .btn_gou').on('click',function(){
+                let $currentLi = $(this).closest('li');
+                let $goodsImg = $currentLi.find('.goodsImg');
+                let $img = $currentLi.find('.goodsImg img');
+                let $cloneImg = $img.clone(true);
+
+                $goodsImg.append($cloneImg)
+                $cloneImg.css({
+                    position: 'absolute',
+                    zIndex:'40',
+                    left:0,
+                    top:0
+                })
+                let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                console.log(targetL)
+                let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                    $cloneImg.remove();
+                });
+
+                $.ajax({
+                    url:'../api/ml_getCart.php',
+                    data:{
+                        type:'get'
+                    },
+                    success:function(data){
+                        data = JSON.parse(data);
+                        if(data.length===0){
+                            $menu[0].innerHTML=
+                                    `
+                                    <img src="../img/fix_cart.png">
+                                    <p>亲，你还没有添加过任何商品哦！<a href="../html/ml_list.html">去逛逛</a></p>
+                                    `          
+                            return;
+                        }else{
+                            //商品数量
+                            let single_q = [];
+                            //商品总价
+                            let single_p = [];
+
+                            $main[0].innerHTML = data.map(function(item){
+                                //得到单个数量
+                                single_q.push(item.count*1);
+                                //得到单个商品总价
+                                single_p.push(item.count*item.special);
+
+                                return `<li class="clearfix" data-mlid="${item.ml_id}">
+                                            <img src="${item.img}" class="fl"/>
+                                            <h5 class="fl">${item.mlname}</h5>
+                                            <h6 class="fr">
+                                                <span class="special">${item.special}</span>
+                                                ×<span class="qty">${item.count}</span>
+                                            </h6>
+                                        </li>`
+                            }).join('')
+
+                            //初始化商品总数
+                            let total_qty = single_q.reduce(function(a,b){
+                                return a+b;
+                            })
+                            $total_qty.html(total_qty);
+
+                            //初始化总价
+                            let total_price = single_p.reduce(function(a,b){
+                                    return a+b;
+                            })
+                            $total_price.html(total_price);
 
 
+                        }//else
+                    }//function
+                })//ajax
+            })
 
-
-
-
-
-
-
-
-
-        
-
-
-
-    });
+            },300)
+        });
 });

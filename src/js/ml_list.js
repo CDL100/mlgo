@@ -19,10 +19,10 @@ require(['config'],function(){
 
         //热卖商品
         let $hot_sale = $('.hot_sale');
-        let $hot_sell = $('.hot_sell');
+        let $sell_con = $('.sell_con');
         let $ul = $('<ul/>');
-        let $left = $('<i class="iconfont icon-jiantou1 left"></i>')
-        let $right =  $('<i class="iconfont icon-jiantou right"></i>')
+        let $left = $('.left')
+        let $right =  $('.right')
         $.ajax({
             url:'../api/ml_list.php',
             data:{
@@ -54,7 +54,7 @@ require(['config'],function(){
 
                     $li.append($img).append($h3).append($h4).append($h5).append($button);
                     $ul.append($li);
-                    $hot_sell.append($ul).append($left).append($right);
+                    $sell_con.append($ul);
 
                     let length = $ul.children('li').length;
                     //一定要用outerWidth
@@ -63,25 +63,25 @@ require(['config'],function(){
                     //左右切换
                     let target = 0;
                     $right[0].onclick=function(){
-                            target -= width*4;
-                            let qty = length%4;
-                            if(qty==0){
-                                qty=4;
-                            }
-                            //最后一个列表有几个width就乘以几
-                            if(target <= -length*width + width*qty){
-                                target = -length*width + width*qty;
-                            }
-                                $ul.animate({'left':target})
-
-                            $left[0].onclick=function(){
-                                target += width*4;   
-                                if(target>=0){
-                                    target = 0;
-                                }
-                                $ul.animate({'left':target})
-                            }
+                        target -= width*4;
+                        let qty = length%4;
+                        if(qty==0){
+                            qty=4;
                         }
+                        //最后一个列表有几个width就乘以几
+                        if(target <= -length*width + width*qty){
+                            target = -length*width + width*qty;
+                        }
+                            $ul.animate({'left':target})
+
+                        $left[0].onclick=function(){
+                            target += width*4;   
+                            if(target>=0){
+                                target = 0;
+                            }
+                            $ul.animate({'left':target})
+                        }
+                    }
                       
                     })
                 }
@@ -219,7 +219,6 @@ require(['config'],function(){
             $listChild.removeClass('selected');
             $(this).addClass('selected');
             judge ='synthesize';
-            console.log(judge)
             $.ajax({
             url:'../api/ml_list.php',
             data:{
@@ -286,7 +285,7 @@ require(['config'],function(){
 
             }  
         });
-    })
+        })
 
         // 点击切换成销量排序                
         let $btn_sell = $('.btn_sell');
@@ -363,7 +362,6 @@ require(['config'],function(){
                                 type:'add'
                             }
                         })
-                        // location.href="ml_cart.html";
                     })
 
                 }  
@@ -445,7 +443,6 @@ require(['config'],function(){
                                 type:'add'
                             }
                         })
-                        // location.href="ml_cart.html";
                     })
 
                 }  
@@ -527,13 +524,11 @@ require(['config'],function(){
                                 type:'add'
                             }
                         })
-                        // location.href="ml_cart.html";
                     })
 
                 }  
             })           
         })
-
 
         //点击切换成价格区间排序
         let $low_p = $('.low_p');
@@ -607,11 +602,9 @@ require(['config'],function(){
                             }
                         })
                     })
-
                 }  
             })           
         })
-
 
 
         // 点击切换分页
@@ -686,7 +679,7 @@ require(['config'],function(){
                                     type:'add'
                                 }
                             })
-                            // location.href="ml_cart.html";
+
                         })
 
                     }  
@@ -694,32 +687,57 @@ require(['config'],function(){
             }
         }
 
+        //点击传递参数并生成浏览记录
+        $sell_con.on('click','a',function(){
+            //传递参数
+            let id = $(this).closest('li').attr('data-mlid');
+            $.ajax({
+                url:'../api/ml_record.php',
+                data:{
+                    mlid:id,
+                    type:'add'
+                }
+            })
+            $(this)[0].href = "ml_details.html?" + id;
 
-        //点击传递参数
-        $hot_sell.on('click','li',function(){
-            let id = $(this).attr('data-mlid');
-            $(this).find('a')[0].href = "ml_details.html?" + id;
         })
-        $hot_sale.on('click','p',function(){
-            console.log($(this))
-            let id = $(this).attr('data-mlid');
-            $(this).find('a')[0].href = "ml_details.html?" + id;
+        $hot_sale.on('click','a',function(){
+            //传递参数
+            let id = $(this).closest('p').attr('data-mlid');
+            $.ajax({
+                url:'../api/ml_record.php',
+                data:{
+                    mlid:id,
+                    type:'add'
+                }
+            })
+            $(this)[0].href = "ml_details.html?" + id;
         })
-        $hot_com.on('click','p',function(){
-            let id = $(this).attr('data-mlid');
-            $(this).find('a')[0].href = "ml_details.html?" + id;
+        $hot_com.on('click','a',function(){  
+            //传递参数
+            let id = $(this).closest('p').attr('data-mlid');
+            $.ajax({
+                url:'../api/ml_record.php',
+                data:{
+                    mlid:id,
+                    type:'add'
+                }
+            })
+            $(this)[0].href = "ml_details.html?" + id;
         })
-        $goods_list.on('click','li',function(){
-            let id = $(this).attr('data-mlid');
-            $(this).find('a')[0].href = "ml_details.html?" + id;
+        $goods_list.on('click','.goodsImg',function(){          
+            //传递参数
+            let id = $(this).closest('li').attr('data-mlid');
+            $.ajax({
+                url:'../api/ml_record.php',
+                data:{
+                    mlid:id,
+                    type:'add'
+                }
+            })
+            $(this)[0].href = "ml_details.html?" + id;
         })
         
-
-
-
-
-
-
 
     });
 });

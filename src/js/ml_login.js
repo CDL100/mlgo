@@ -36,11 +36,9 @@ require(['config'],function(){
             },
             success:function(data){
                 if(data=='success'){
-                    console.log(data);
-                    $login_word.next('h3').html('');
-                    location.href="../index.html"
+                    let username = $login_name.val();
+                    location.href="../index.html?" + username;
                 }else{
-                    console.log(data);
                     $login_word.next('h3').html('密码错误');
                 }
             }

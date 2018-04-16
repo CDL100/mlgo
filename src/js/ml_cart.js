@@ -3,6 +3,9 @@ require(['config'],function(){
 
         //生成数据
         let $menu = $('.ml_menu .menu');
+        let $ml_record = $('.ml_record');
+        let $left = $('.left');
+        let $right = $('.right');
         $.ajax({
             url:'../api/ml_cart.php',
             data:{
@@ -303,7 +306,6 @@ require(['config'],function(){
                 })
                 
 
-
                 //键盘弹起时将数据存入数据库
                 $('.qty').on('keyup',function(){
                     val = $(this).val();
@@ -317,8 +319,6 @@ require(['config'],function(){
                     })
 
                 })
-
-
 
               
                 //点击删除按钮删除对应商品
@@ -373,10 +373,9 @@ require(['config'],function(){
                                 total_price=0;
                             }
                             $total_price.html(total_price);
-
                         }             
                     }
-
+                    //存入数据库
                     $.ajax({
                         url:'../api/ml_cart.php',
                         data:{
@@ -485,8 +484,7 @@ require(['config'],function(){
                                 total_price = single_p1.reduce(function(a,b){
                                     return a+b;
                                 })
-                                $total_price.html(total_price);
-                                
+                                $total_price.html(total_price);                                
                             }             
                         }
                         
@@ -546,10 +544,82 @@ require(['config'],function(){
                     }//第二个else               
                 })
 
-
                 }//第一个else
 
             }//第一个success
         })//第一个ajax
+
+        
+        //浏览记录
+        $.ajax({
+            url:'../api/ml_record.php',
+            data:{
+                type:'get'
+            },
+            success:function(data){
+                data = JSON.parse(data);
+                console.log(data)
+                let $ul = $('<ul/>');
+                $ul[0].innerHTML = data.map(function(item){
+                    return `<li data-mlid="${item.ml_id}">
+                                <a><img src="${item.img}"></a>
+                                <h3>${item.mlname}</h3>
+                                <h4 class="clearfix"><span class="fr">已售${item.sale}件</span></h4>
+                                <h5 class="clearfix">
+                                    <span class="fl">
+                                        <strong>￥${item.special}</strong>
+                                        <del>价格￥${item.market}</del>
+                                    </span>
+                                    <a class="btn_add fr">加入购物车</a>
+                                </5>
+                            </li>`
+                }).join('')
+                $ul.addClass('clearfix');
+                $ml_record.append($ul);
+
+
+
+                let length = $ul.children('li').length;
+                //一定要用outerWidth
+                let width = $ul.children('li').outerWidth();
+                $ul.width(length*width)
+                //左右切换
+                let target = 0;
+                $('.right')[0].onclick=function(){
+                    target -= width*4;
+                    let qty = length%4;
+                    if(qty==0){
+                        qty=4;
+                    }
+                    //最后一个列表有几个width就乘以几
+                    if(target <= -length*width + width*qty){
+                        target = -length*width + width*qty;
+                    }
+                        $ul.animate({'left':target})
+
+                    $('.left')[0].onclick=function(){
+                        target += width*4;   
+                        if(target>=0){
+                            target = 0;
+                        }
+                        $ul.animate({'left':target})
+                    }
+                }
+                //点击传递参数
+                $ml_record.on('click','li',function(){
+                    let id = $(this).attr('data-mlid');
+                    $(this).find('a')[0].href = "ml_details.html?" + id;
+                })
+
+
+
+
+
+            }//success
+        })//第二个ajax
+        
+
+
+        
     })
 })

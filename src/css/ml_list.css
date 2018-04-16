@@ -181,45 +181,67 @@
   width: 960px;
   border: 1px solid #ccc;
   position: relative;
+}
+
+.hot_sell i {
+  display: block;
+  font-size: 20px;
+  line-height: 60px;
+  border: 1px solid #ccc;
+  color: #949494;
+  background-color: #F9F9F9;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.hot_sell .left {
+  left: 10px;
+}
+
+.hot_sell .right {
+  right: 10px;
+}
+
+.sell_con {
+  width: 860px;
+  margin: 0 auto;
   height: 140px;
   overflow: hidden;
+  position: relative;
 }
 
-.hot_sell ul {
+.sell_con ul {
   position: absolute;
   height: 140px;
-  padding-left: 40px;
-  left: 0;
-  top: 0;
 }
 
-.hot_sell li {
-  padding-top: 20px;
-  width: 220px;
+.sell_con li {
+  width: 200px;
   list-style: none;
   float: left;
   font-size: 12px;
-  padding-right: 10px;
+  padding: 20px 10px;
 }
 
-.hot_sell a {
+.sell_con a {
   float: left;
   display: inline-block;
   padding-right: 8px;
   transition: 0.8s;
 }
 
-.hot_sell img {
+.sell_con img {
   width: 90px;
   height: 100px;
 }
 
-.hot_sell a:hover {
+.sell_con a:hover {
   transform: scale(1.1, 1.1);
   cursor: pointer;
 }
 
-.hot_sell h3 {
+.sell_con h3 {
   width: 88px;
   line-height: 18px;
   height: 36px;
@@ -227,39 +249,22 @@
   overflow: hidden;
 }
 
-.hot_sell h4 {
+.sell_con h4 {
   color: #CC1D00;
   line-height: 22px;
   font-weight: bold;
 }
 
-.hot_sell del {
+.sell_con del {
   color: #CDD5E2;
 }
 
-.hot_sell button {
+.sell_con button {
   margin-top: 10px;
   display: block;
   line-height: 26px;
   width: 82px;
   border-radius: 4px;
-}
-
-.hot_sell i {
-  display: block;
-  font-size: 30px;
-  width: 30px;
-  line-height: 140px;
-  position: absolute;
-  background-color: #fff;
-}
-
-.hot_sell .left {
-  left: 0;
-}
-
-.hot_sell .right {
-  right: 0;
 }
 
 .choose {
@@ -340,6 +345,8 @@
 .goods_list .goodsImg {
   display: inline-block;
   padding-top: 40px;
+  width: 184px;
+  height: 188px;
 }
 
 .goods_list img {

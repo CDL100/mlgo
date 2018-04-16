@@ -8,7 +8,7 @@
     $page = isset($_GET['page']) ? $_GET['page'] : 1;
     $qty = isset($_GET['qty']) ? $_GET['qty'] : 10;
     //获取总数
-    $sql1 = "select * from milk ";
+    $sql1 = "select * from milk";
     $result1 = $conn->query($sql1);
     $total = $result1->num_rows;
     $idx = ($page-1)*$qty;

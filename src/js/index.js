@@ -1,7 +1,13 @@
 
 require(['config'],function(){
     require(['jquery','zBanner'],function($){
-
+        //获取登录用户名
+        if(location.search!=''){
+            let username = location.search.slice(1);
+            let haslogin = $('.haslogin');
+            haslogin.text('欢迎您'+username);
+        }  
+        
         //生成页面结构
         let $type = $('.ml_main .type');
         $.ajax({
@@ -142,7 +148,7 @@ require(['config'],function(){
         let $total_price = $('.total_price');
 
         $.ajax({
-        url:'api/ml_cart.php',
+        url:'api/ml_getCart.php',
         data:{
             type:'get'
         },
