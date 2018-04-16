@@ -1,6 +1,57 @@
 require(['config'],function(){
     require(['jquery','base'],function($){
 
+        //右边固定购物车
+        let $fix_right = $('.fix_right');
+        let $btn_cart = $('.btn_cart');     
+        let $menu = $('.cart_list .menu');
+        let $main = $('.menu .main')
+        let $total_qty = $('.total_qty');
+        let $total_price = $('.total_price');
+        
+        //点击时，更新购物车列表
+        function update(){
+                $.ajax({
+                    url:'../api/ml_getCart.php',
+                    data:{
+                        type:'get'
+                    },
+                    success:function(data){
+                        data = JSON.parse(data);
+                            //商品数量
+                            let single_q = [];
+                            //商品总价
+                            let single_p = [];
+                            $main[0].innerHTML = data.map(function(item){
+                                //得到单个数量
+                                single_q.push(item.count*1);
+                                //得到单个商品总价
+                                single_p.push(item.count*item.special);
+
+                                return `<li class="clearfix" data-mlid="${item.ml_id}">
+                                            <img src="${item.img}" class="fl"/>
+                                            <h5 class="fl">${item.mlname}</h5>
+                                            <h6 class="fr">
+                                                <span class="special">${item.special}</span>
+                                                ×<span class="qty">${item.count}</span>
+                                            </h6>
+                                        </li>`
+                            }).join('');
+
+                            //初始化商品总数
+                            let total_qty = single_q.reduce(function(a,b){
+                                return a+b;
+                            })
+                            $total_qty.html(total_qty);
+
+                            //初始化总价
+                            let total_price = single_p.reduce(function(a,b){
+                                    return a+b;
+                            })
+                            $total_price.html(total_price);
+                    }//function
+                })//ajax
+        }
 
         //手风琴
         let $type_open = $('.type_open');
@@ -199,16 +250,36 @@ require(['config'],function(){
                 })
                 //点击时加入购物车
                 $('.goods_list .btn_gou').on('click',function(){
+                    let $currentLi = $(this).closest('li');
+                    let $goodsImg = $currentLi.find('.goodsImg');
+                    let $img = $currentLi.find('.goodsImg img');
+                    let $cloneImg = $img.clone(true);
+
+                    $goodsImg.append($cloneImg)
+                    $cloneImg.css({
+                        position: 'absolute',
+                        zIndex:'40',
+                        left:0,
+                        top:0
+                    })
+                    let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                    let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                    $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                        $cloneImg.remove();
+                    });
+
                     $.ajax({
                         url:'../api/ml_cart.php',
                         data:{
                             mlid:$(this).closest('li').data('mlid'),
                             val:1,
                             type:'add'
+                        },
+                        success:function(data){
+                            update();
                         }
                     })
                 })
-
             }   
         });
         
@@ -273,16 +344,35 @@ require(['config'],function(){
                 })
                 //点击时加入购物车
                 $('.goods_list .btn_gou').on('click',function(){
+                    let $currentLi = $(this).closest('li');
+                    let $goodsImg = $currentLi.find('.goodsImg');
+                    let $img = $currentLi.find('.goodsImg img');
+                    let $cloneImg = $img.clone(true);
+
+                    $goodsImg.append($cloneImg)
+                    $cloneImg.css({
+                        position: 'absolute',
+                        zIndex:'40',
+                        left:0,
+                        top:0
+                    })
+                    let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                    let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                    $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                        $cloneImg.remove();
+                    });
                     $.ajax({
                         url:'../api/ml_cart.php',
                         data:{
                             mlid:$(this).closest('li').data('mlid'),
                             val:1,
                             type:'add'
+                        },
+                        success:function(data){
+                            update();
                         }
                     })
                 })
-
             }  
         });
         })
@@ -354,12 +444,32 @@ require(['config'],function(){
                     })
                     //点击时加入购物车
                     $('.goods_list .btn_gou').on('click',function(){
+                        let $currentLi = $(this).closest('li');
+                        let $goodsImg = $currentLi.find('.goodsImg');
+                        let $img = $currentLi.find('.goodsImg img');
+                        let $cloneImg = $img.clone(true);
+
+                        $goodsImg.append($cloneImg)
+                        $cloneImg.css({
+                            position: 'absolute',
+                            zIndex:'40',
+                            left:0,
+                            top:0
+                        })
+                        let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                        let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                        $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                            $cloneImg.remove();
+                        });
                         $.ajax({
                             url:'../api/ml_cart.php',
                             data:{
                                 mlid:$(this).closest('li').data('mlid'),
                                 val:1,
                                 type:'add'
+                            },
+                            success:function(data){
+                                update();
                             }
                         })
                     })
@@ -435,12 +545,32 @@ require(['config'],function(){
                     })
                     //点击时加入购物车
                     $('.goods_list .btn_gou').on('click',function(){
+                        let $currentLi = $(this).closest('li');
+                        let $goodsImg = $currentLi.find('.goodsImg');
+                        let $img = $currentLi.find('.goodsImg img');
+                        let $cloneImg = $img.clone(true);
+
+                        $goodsImg.append($cloneImg)
+                        $cloneImg.css({
+                            position: 'absolute',
+                            zIndex:'40',
+                            left:0,
+                            top:0
+                        })
+                        let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                        let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                        $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                            $cloneImg.remove();
+                        });
                         $.ajax({
                             url:'../api/ml_cart.php',
                             data:{
                                 mlid:$(this).closest('li').data('mlid'),
                                 val:1,
                                 type:'add'
+                            },
+                            success:function(data){
+                                update();
                             }
                         })
                     })
@@ -516,12 +646,32 @@ require(['config'],function(){
                     })
                     //点击时加入购物车
                     $('.goods_list .btn_gou').on('click',function(){
+                        let $currentLi = $(this).closest('li');
+                        let $goodsImg = $currentLi.find('.goodsImg');
+                        let $img = $currentLi.find('.goodsImg img');
+                        let $cloneImg = $img.clone(true);
+
+                        $goodsImg.append($cloneImg)
+                        $cloneImg.css({
+                            position: 'absolute',
+                            zIndex:'40',
+                            left:0,
+                            top:0
+                        })
+                        let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                        let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                        $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                            $cloneImg.remove();
+                        });
                         $.ajax({
                             url:'../api/ml_cart.php',
                             data:{
                                 mlid:$(this).closest('li').data('mlid'),
                                 val:1,
-                                type:'add'
+                                type:'add',
+                                success:function(data){
+                                    update();
+                                }
                             }
                         })
                     })
@@ -593,12 +743,32 @@ require(['config'],function(){
                     })
                     //点击时加入购物车
                     $('.goods_list .btn_gou').on('click',function(){
+                        let $currentLi = $(this).closest('li');
+                        let $goodsImg = $currentLi.find('.goodsImg');
+                        let $img = $currentLi.find('.goodsImg img');
+                        let $cloneImg = $img.clone(true);
+
+                        $goodsImg.append($cloneImg)
+                        $cloneImg.css({
+                            position: 'absolute',
+                            zIndex:'40',
+                            left:0,
+                            top:0
+                        })
+                        let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                        let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                        $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                            $cloneImg.remove();
+                        });
                         $.ajax({
                             url:'../api/ml_cart.php',
                             data:{
                                 mlid:$(this).closest('li').data('mlid'),
                                 val:1,
-                                type:'add'
+                                type:'add',
+                                success:function(data){
+                                    update();
+                                }
                             }
                         })
                     })
@@ -671,12 +841,32 @@ require(['config'],function(){
                         })
                         //点击时加入购物车
                         $('.goods_list .btn_gou').on('click',function(){
+                            let $currentLi = $(this).closest('li');
+                            let $goodsImg = $currentLi.find('.goodsImg');
+                            let $img = $currentLi.find('.goodsImg img');
+                            let $cloneImg = $img.clone(true);
+
+                            $goodsImg.append($cloneImg)
+                            $cloneImg.css({
+                                position: 'absolute',
+                                zIndex:'40',
+                                left:0,
+                                top:0
+                            })
+                            let targetL = $('.btn_cart').offset().left-$cloneImg.offset().left;
+                            let targetT = $('.btn_cart').offset().top-$cloneImg.offset().top;
+                            $cloneImg.stop().animate({width:50,height:50,left:targetL,top:targetT},1000,function(){
+                                $cloneImg.remove();
+                            });
                             $.ajax({
                                 url:'../api/ml_cart.php',
                                 data:{
                                     mlid:$(this).closest('li').data('mlid'),
                                     val:1,
-                                    type:'add'
+                                    type:'add',
+                                    success:function(data){
+                                        update();
+                                    }
                                 }
                             })
 
